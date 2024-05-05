@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Optimal Action Sequence Reordering: Advancing POMDP Solutions with Language Model Insights">
+  <meta name="keywords" content="LLMs, Embodied, EIF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FYP Project</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://zclzz.github.io/portfolio/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="">
+            <span class="coming-soon" style="color: red;">More coming soon!</span>
+          </a>
+          <a class="navbar-item" href="">
+            <!-- Nerfies -->
+          </a>
+          <a class="navbar-item" href="">
+            <!-- LatentFusion -->
+          </a>
+          <a class="navbar-item" href="">
+            <!-- PhotoShape -->
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Strategic Task Execution: Integrating Large Language Models, POMDP, and Customized Reordering Policy for Sequence Selection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Final Year Research Thesis,</span>
+            <span class="author-block">National University of Singapore</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zclzz.github.io/portfolio/"><em>Chao Zhou Lim</em></a>, advised by Dr. Kim Jung-Jae and Dr. Goh Shen-Tat
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <em>May 2024</em>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- Code Link -->
+            <span class="link-block">
+              <a href="https://github.com/zclzz/ALFRED-challenge"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+            <!-- Dataset Link -->
+            <span class="link-block">
+              <a href="https://github.com/askforalfred/alfred/tree/master/data"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="far fa-images"></i>
+                </span>
+                <span>Dataset</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="is-size-5 publication-authors" style="text-align: center; margin-bottom: 30px;">
+        <span class="author-block" style="display: inline-block; width: 70%;">
+          Skills: Natural Language Processing &bull; Large Language Models &bull; AI Planning and Decision Making &bull; Reinforcement Learning
+        </span>
+      </div>
+
+      <!-- New row with two columns -->
+      <div class="columns is-mobile" style="border-bottom: 1px solid #ccc; margin-bottom: 0px;">
+        <div class="column has-text-left">
+          <!-- Left-aligned text -->
+          Project Portfolio
+        </div>
+        <div class="column has-text-right">
+          <!-- Right-aligned text -->
+          7 min read
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="text-align: center;"> <!-- Ensures all content in hero-body is centered -->
+      <h2 class="subtitle has-text-centered">
+        Goal: Place a clean filled mug at the coffee maker
+      </h2>
+      <!-- centre the video -->
+      <video id="teaser" autoplay muted loop playsinline height="100%" style="display: block; margin: auto; margin-bottom: 10px;">
+        <source src="./static/videos/alfred.mp4"
+                type="video/mp4">
+      </video>
+      <p style="margin-bottom: 30px;">
+        High-level task instructions are inputted into the LLM, which then decomposes them into a sequence of actionable steps executed by the agent in the <a href="https://ai2thor.allenai.org/demo/">THOR</a> virtual environment.
+      </p>
+      <h2 class="subtitle has-text-centered">
+        <p>
+          Plan: Pick up the mug -> go to the sink basin -> place the mug in the sink -> turn the faucet on -> turn the faucet off -> walk to the coffee maker -> place the mug
+        </p>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            My final-year research investigates the future of Embodied Instruction Following (EIF), 
+            which involves the use of mobile manipulator robots that perform household tasks based on 
+            natural language instructions. EIF aims to bridge the gap between simulated environments 
+            and real-world applications, allowing robots to operate effectively in human spaces. 
+          </p>
+          <p>
+            My research extends the capabilities of two state-of-the-art embodied agents, 
+            <a href="https://arxiv.org/abs/2110.07342">FILM</a> and <a href="https://arxiv.org/abs/2211.03267">Prompter</a>, 
+            addressing their limitations in handling high-level task instructions. I propose two novel methods 
+            that employ large language models (LLMs) to predict top promising action sequences and a reordering policy 
+            to optimize the selection from these sequences for partially observed environmental states.
+          </p>
+          <p>
+            Agents are evaluated against <a href="https://askforalfred.com/">ALFRED</a> dataset, a benchmark for learning
+            a mapping from natural language instructions and egocentric vision to sequences of
+            actions for household tasks. My proposed strategy is successful in surpassing both
+            my baseline systems, <strong>significantly outperforming</strong> my baselines' state-of-the-art model,
+            reaching a 48.59% success rate and claiming <strong>12th place</strong> on a globally competitive
+            <a href="https://leaderboard.allenai.org/alfred/submissions/public">leaderboard</a> that features contributions from researchers around the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: center;">The Problem</h2>
+        <div class="content has-text-justified">
+          <!-- Center only the image, header is already centered -->
+          <img src="./static/images/miscomm.png" style="width: 60%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p>
+            Miscommunication between humans and agents continues to be a significant challenge in task-oriented interactions, as highlighted by failure analysis 
+            across dataset. These miscommunication errors often arise from ambiguously worded or contradictory high-level task instructions provided by humans. 
+            Objects that humans may view as similar or identical, are different to agents, especially in environments like THOR, as they are recognized as distinct objects. This discrepancy 
+            can lead to errors in task execution, where agents either interact with incorrect targets or fail to identify the correct ones, resulting in high rates of goal 
+            undetected errors. Although such scenarios mirror real-life communication challenges, expecting humans to overly simplify or alter their natural language use is impractical. 
+            Instead, there is a pressing need for agents to be developed with robust capabilities to interpret and navigate through these miscommunication errors effectively, 
+            ensuring more reliable and successful task completion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Reordering Policy. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reordering Policy</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/reordering_policy.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            The agent updates an object count vector during exploration to assess the likelihood of task completion for each action sequence
+          </p>
+          <p>
+            After obtaining a set of promising action sequences from the large language model, the reordering policy aims to select the optimal sequence that maximizes the likelihood of task completion.
+            I introduce an initial exploration phase of 100 steps for the agent. During
+            this phase, the agent does a random search of the environment to observe and
+            compile a count of all visible objects, which is then used to initialize the
+            object count vector. This vector is updated at each time step to reflect the current state of the environment.
+            Each action sequence is evaluated by calculating the likelihood of task completion based on the object count vector and the action sequence. It does so by assigning
+            higher utility score to sequences whose objects were observed more frequently during the exploration phase, while penalizing sequences that require objects that were not observed.
+          </p> 
+
+        </div>
+      </div>
+    </div>
+    <!--/ Reordering Policy. -->
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            I employed <span class="text-color" style="color: blue;"><a href="https://askforalfred.com/">ALFRED</a></span> to evaluate my method. In ALFRED, environments are categorized into three splits: 'train,' 'validation,' and 'test.' 
+            Both the validation and test environments are split further into 'seen' and 'unseen' categories to evaluate how well the system generalizes. The main metric used is the success rate, 
+            referred to as 'SR,' which calculates the proportion of successfully completed tasks. Another important metric is the goal-condition success rate, abbreviated as 'GC,' which quantifies 
+            the proportion of goal conditions that have been met. Additionally, path-length-weighted (PLW) scores are used to adjust the SR and GC metrics based on the length of the actions performed by the agent.
+          </p> 
+          <p>
+            My proposed method achieved a 48.59% success rate on the unseen test split, surpassing both my baseline systems and the state-of-the-art model, in both components of language understanding and 
+            navigation. My agent also attained a ranking of 12th place on the ALFRED Challenge <span class="text-color" style="color: blue;"><a href="https://leaderboard.allenai.org/alfred/submissions/public">leaderboard</a></span>. 
+            The results demonstrate the effectiveness of my proposed method in handling high-level task instructions
+            and optimizing action sequences for partially observed environmental states.
+          </p>
+          <img src="./static/images/results.png" style="width: 60%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            Comparative analysis of my model against my state-of-the-art baseline systems
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/zclzz/ALFRED-challenge" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-mobile" style="border-top: 1px solid #ccc; margin-bottom: 0px;">
+      <div class="column has-text-left">
+        <!-- Left-aligned text -->
+        Last updated May 2024
+      </div>
+      <div class="column has-text-right">
+        <!-- Right-aligned text -->
+        Website design inspired by Park Keunhong
+      </div>
+    </div>
+</div>
+</footer>
+
+</body>
+</html>
