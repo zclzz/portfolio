@@ -239,14 +239,24 @@
             The agent updates an object count vector during exploration to assess the likelihood of task completion for each action sequence
           </p>
           <p>
-            After obtaining a set of promising action sequences from the large language model, the reordering policy aims to select the optimal sequence that maximizes the likelihood of task completion.
+            After obtaining a top k action sequences from the large language model, the reordering policy aims to select the optimal sequence that maximizes the likelihood of task completion.
             I introduce an initial exploration phase of 100 steps for the agent. During
             this phase, the agent does a random search of the environment to observe and
             compile a count of all visible objects, which is then used to initialize the
             object count vector. This vector is updated at each time step to reflect the current state of the environment.
-            Each action sequence is evaluated by calculating the likelihood of task completion based on the object count vector and the action sequence. It does so by assigning
-            higher utility score to sequences whose objects were observed more frequently during the exploration phase, while penalizing sequences that require objects that were not observed.
           </p> 
+          <video id="example" autoplay muted loop playsinline height="100%" style="display: block; margin: auto; margin-bottom: 10px; margin-top: 10px;">
+            <source src="./static/videos/example.mp4"
+                    type="video/mp4">
+          </video>
+          <p style="text-align: center; font-size: 14px;">
+            At T = 100, the agent applies the reordering policy to select the best action sequence to execute the task: place lettuce on CounterTop.
+          </p>
+          <p>
+            Each action sequence is evaluated by calculating the likelihood of task completion based on the object count vector and the action sequence. It does so by assigning
+            higher utility score to sequences whose objects were observed more frequently during the exploration phase, while penalizing sequences that require objects that were not observed. 
+            Unseen receptacles are penalized more heavily than unseen objects, due the the higher likelihood of unseen receptacles leading to task failure. The agent then selects the sequence with the highest utility score to execute.
+            
 
         </div>
       </div>
