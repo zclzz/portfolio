@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/GCR-logo-white.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -56,11 +56,11 @@
           More Projects
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="">
-            <span class="coming-soon" style="color: red;">More coming soon!</span>
+          <a class="navbar-item" href="../fyp/">
+            FYP project
           </a>
           <a class="navbar-item" href="">
-            <!-- Nerfies -->
+            <span class="coming-soon" style="color: red;">More coming soon!</span>
           </a>
           <a class="navbar-item" href="">
             <!-- LatentFusion -->
@@ -96,6 +96,7 @@
           Skills: App Development &bull; Java &bull; XML &bull; Google Apps Script &bull; Google Sheets API &bull; Object Oriented Programming
         </span>
       </div>
+
 
       <!-- New row with two columns -->
       <div class="columns is-mobile" style="border-bottom: 1px solid #ccc; margin-bottom: 0px;">
@@ -154,7 +155,8 @@
 
           <p>
             The General Comfort Rating (GCR) Android Application is an in-house customized app developed to collect discomfort ratings from passengers at their specific body region during studies conducted in the  <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://siacorplab.nus.edu.sg/our-sia-nus-corporate-lab-tour/" target="_blank">laboratory's flight simulator</a></span>. It prompts 
-            participants to input their discomfort ratings at specific body regions every 20 minutes during the flight simulation, allowing researchers to monitor their discomfort levels in real time. The application also features a user-friendly interface that simplifies the discomfort rating process for participants, ensuring a seamless and efficient data collection process.
+            participants to input their discomfort ratings at specific body regions every 20 minutes during the flight simulation, according to the GCR scale adapted from the <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://www.researchgate.net/figure/The-Borg-CR10-scale-for-determining-perceived-level-of-fatigue-of-the-lower-limb_tbl1_232813562" target="_blank">Borg CR10 scale</a></span> for determining perceived level of muscle fatigueness. 
+            The application also features a user-friendly interface that simplifies the discomfort rating process for participants, ensuring a seamless and efficient data collection process, allowing researchers to monitor their discomfort levels in real time. 
           </p>
           <p>
           </p>
@@ -189,7 +191,6 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Reordering Policy. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3" style="text-align: left;">App Features</h2>
@@ -232,7 +233,6 @@
         </div>
       </div>
     </div>
-    <!--/ Reordering Policy. -->
   </div>
 </section>
 
@@ -246,11 +246,48 @@
           <p>
             Earlier versions of the app collects the inputted discomfort ratings from participants and stores them locally on the IFE tablet in a csv file. However,
             this method of data collection was inefficient as researchers had to manually retrieve the data from each device and compile them into a single spreadsheet for analysis.
-            Additionally, it was challenging to monitor participants' discomfort levels in real time, as researchers had to wait until the end of the study to analyze the data, only to
+            Additionally, it was challenging to monitor participants' discomfort levels in real time, as researchers had to wait until the end of the 7-hour study to analyze the data, only to
             realize that some participants had missed out on filling in the discomfort surveys at some intervals. To address these issues, I developed a feature that syncs the collected 
             data to an online spreadsheet in real time, allowing researchers to monitor participants' discomfort feedback as it is being collected.
           </p>
+          <img src="./static/images/logging.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Discomfort ratings from participants are logged to an online spreadsheet using <a href="https://developers.google.com/sheets/api/guides/concepts" target="_blank">Google Sheets API</a> and <a href="https://www.google.com/script/start/">Google Apps Script</a>.
+          </p>
+          <p>
+            The real-time data monitoring feature utilizes the Google Sheets API and Google Apps Script to automatically log discomfort ratings inputted by participants into an online spreadsheet. 
+            Each time participants submit their entries, the app updates the spreadsheet, enabling researchers to monitor discomfort feedback instantly. This capability greatly improves the efficiency 
+            of the data collection process by centralizing all data into a single spreadsheet, 
+            thus eliminating the need for manual retrieval from individual IFE devices.
+          </p>
+          <video id="body_ref" autoplay muted loop playsinline height="100%" style="display: block; margin: auto; margin-bottom: 10px; margin-top: 30px;">
+            <source src="./static/videos/logging_edited.mp4"
+                    type="video/mp4">
+          </video>
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            Real-time data monitoring feature that syncs collected data to an online spreadsheet for analysis.
+          </p>
+          <p>
+            The real-time data monitoring feature also allows researchers to identify participants who have missed out on filling in the discomfort surveys at specific intervals (maybe because they fell asleep or the notification did not arrive). 
+            This enables researchers to verbally prompt these participants to complete the surveys, ensuring that the data collected is comprehensive and accurate. In addition, the app tracks the time taken by participants to complete the surveys, 
+            providing researchers with insights into the efficiency of the data collection process. This information is crucial for optimizing the study design and ensuring that the data collected is reliable and consistent.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Key Takeaways</h2>
+        <div class="content has-text-justified">
+          <p>
+            Developing the GCR App has been a highly enriching experience, significantly enhancing my skills in app development, marking my first (solo) project in software development. The app has greatly improved the efficiency and accuracy of data collection 
+            for the Cabin Seat Comfort Project, enabling real-time monitoring of participants' discomfort feedback. As I continue to receive user feedback, I am actively refining the app, making iterative improvements that enhance its functionality and ensure the 
+            interface remains user-friendly and the data monitoring capabilities robust. This ongoing development process has not only streamlined the study but also provided researchers with crucial insights into passenger discomfort during long-haul flights.
+          </p>
         </div>
       </div>
     </div>
