@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="General Comfort Rating">
+  <meta name="keywords" content="App Development, Java, XML">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GCR App</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://zclzz.github.io/portfolio/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="">
+            <span class="coming-soon" style="color: red;">More coming soon!</span>
+          </a>
+          <a class="navbar-item" href="">
+            <!-- Nerfies -->
+          </a>
+          <a class="navbar-item" href="">
+            <!-- LatentFusion -->
+          </a>
+          <a class="navbar-item" href="">
+            <!-- PhotoShape -->
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">General Comfort Rating (GCR) Android App</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">An in-house customized Android Application developed for the Cabin Seat Comfort Project, under <a href="https://siacorplab.nus.edu.sg/work-package-4-passenger-comfort-sleep-and-cabin-service/" target="_blank">SIA-NUS Digital Aviation Corporate Laboratory</a></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <em>May 2024</em>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="is-size-5 publication-authors" style="text-align: center; margin-bottom: 30px;">
+        <span class="author-block" style="display: inline-block; width: 70%;">
+          Skills: App Development &bull; Java &bull; XML &bull; Google Apps Script &bull; Google Sheets API &bull; Object Oriented Programming
+        </span>
+      </div>
+
+      <!-- New row with two columns -->
+      <div class="columns is-mobile" style="border-bottom: 1px solid #ccc; margin-bottom: 0px;">
+        <div class="column has-text-left">
+          <!-- Left-aligned text -->
+          Project Portfolio
+        </div>
+        <div class="column has-text-right">
+          <!-- Right-aligned text -->
+          11 min read
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="text-align: center;"> 
+      <video id="teaser" autoplay muted loop playsinline height="100%" style="display: block; margin: auto; margin-bottom: 10px;">
+        <source src="./static/videos/gcr_example.mp4"
+                type="video/mp4">
+      </video>
+      <p style="margin-bottom: 30px;">
+        Data collection process of the General Comfort Rating (GCR) Android Application developed for the Cabin Seat Comfort Project.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <!-- Introduction. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            This project is a key initiative of the Cabin Seat Comfort Project at the <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://siacorplab.nus.edu.sg/work-package-4-passenger-comfort-sleep-and-cabin-service/" target="_blank">SIA-NUS Digital Aviation Corporate Laboratory</a></span>. It marked my inaugural foray into software development, having had no prior experience in the field.
+            The Seat Project is structured into two phases. The first phase involves collecting data from participants in a flight simulator with the goal of developing an AI model that predicts the discomfort level of passengers based on their in-chair movements (ICM). The second phase aims to develop an AI-powered smart seating solution 
+            that preemptively adjusts the seat settings to alleviate discomfort caused by prolonged sitting.
+          </p>
+          <p>
+            The first phase of data collection involves participants rating their discomfort levels at specific body regions every 20 minutes during a 7-hour flight simulation. They are invited to the  <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://siacorplab.nus.edu.sg/our-sia-nus-corporate-lab-tour/" target="_blank">laboratory's flight simulator</a></span> which replicates long-haul flight 
+            conditions including engine vibrations, cabin pressure, and oxygen levels. Throughout the simulation, participants are restricted to watching Netflix via the simulated in-flight entertainment (IFE) system and are required to fill in discomfort surveys at every 20-minute interval, with a 5-minute toilet break at every 2 hour intervals. 
+            This setup helps gather crucial feedback on discomfort, which is essential for developing an AI model designed to predict passenger 
+            discomfort levels in real time. In-chair movements (ICMs) are captured through pressure mats on the seat and backrest, analyzing time-series features such as frequent shifting and fidgeting, indicative of discomfort.
+          </p>
+          <video id="body_ref" autoplay muted loop playsinline height="100%" style="display: block; margin: auto; margin-bottom: 10px; margin-top: 30px;">
+            <source src="./static/videos/body-reference-v4.mp4"
+                    type="video/mp4">
+          </video>
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            Body reference video introduced to participants before the study to guide them in rating their discomfort at specific body regions.
+          </p>
+
+          <p>
+            The General Comfort Rating (GCR) Android Application is an in-house customized app developed to collect discomfort ratings from passengers at their specific body region during studies conducted in the  <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://siacorplab.nus.edu.sg/our-sia-nus-corporate-lab-tour/" target="_blank">laboratory's flight simulator</a></span>. It prompts 
+            participants to input their discomfort ratings at specific body regions every 20 minutes during the flight simulation, allowing researchers to monitor their discomfort levels in real time. The application also features a user-friendly interface that simplifies the discomfort rating process for participants, ensuring a seamless and efficient data collection process.
+          </p>
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Introduction. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Motivation</h2>
+        <div class="content has-text-justified">
+          <!-- Center only the image, header is already centered -->
+          <p>
+            Before I started developing the GCR App, the team had been collecting discomfort ratings manually using pen and paper for our pilot studies. 
+            This process was not only time-consuming but also prone to human error, as researchers had to manually input the data into spreadsheets for analysis. 
+            Furthermore, reaching for the pen and paper to record discomfort ratings introduce unnecessary fidgeting that affects the participants' in-chair movements, 
+            potentially skewing the data collected. The GCR Android Application was developed to address these issues, providing a more efficient and accurate method of 
+            collecting discomfort ratings from participants, by integrating the data collection process into our simulated IFE system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Reordering Policy. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">App Features</h2>
+        <div class="content has-text-justified">
+          <p>
+            The app features a user-friendly interface, meticulously designed by the design team at Work Package 4, streamlining the discomfort rating process for participants. 
+            As preparations for the study progress, the app is continually enhanced with additional features based on extensive feedback and pilot studies. These enhancements aim 
+            to optimize the data collection process. Key features of the app include:
+            <ul>
+              <li>Interactive user interface that responses to user's click activity.</li>
+              <li>Notification system that prompts participants to fill in a discomfort survey every 20 minutes.</li>
+              <li>Provides researchers with administrative access to control app activty and study duration.</li>
+              <li>Allows for real time monitoring of participants' discomfort feedback by syncing collected data to an online spreadsheet for analysis.</li>
+          </p> 
+          <img src="./static/images/login.jpg" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Login page of the App to give researcers access to control app activity and study duration.
+          </p>
+          <p>
+            The login page of the app provides researchers with administrative access to control app activity and study duration. Researchers can customize the app according to specific study requirements,
+            such as setting the study duration, frequency of discomfort surveys and partipant's name. The app also allows researchers to enable or disable specific features based on the study's objectives, ensuring that the app
+            is tailored to the specific needs of each study.
+          </p>
+          <img src="./static/images/interval.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Notification system that prompts participants to fill in a discomfort survey every 20 minutes.
+          </p>
+          <p>
+            Arguably the most critical feature of the app is the notification system that prompts participants to complete a discomfort survey every 20 minutes. This ensures that feedback on discomfort levels is consistently provided throughout the duration of the study, 
+            allowing researchers to monitor these levels in real time. The notification system leverages a combination of Android's <a href="https://developer.android.com/reference/java/util/TimerTask" target="_blank">TimerTask</a>, 
+            <a href="https://developer.android.com/reference/android/app/NotificationManager" target="_blank">NotificationManager</a>, and <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat" target="_blank">NotificationCompat</a> classes. 
+            It initiates a new runnable at the start of the study and generates a dropdown notification at each 20-minute interval, prompting participants to access the app and fill out the survey, even during interruptions such as watching a movie.
+          </p>
+          <p>
+            The initial version of the app features a minimalist layout, deliberately free of any unnecessary elements that might distract participants from the study. 
+            I prioritized creating an interface that is both user-friendly and intuitive, avoiding complex functionalities that could confuse users. 
+            The design is straightforward, with clear instructions and prompts to seamlessly guide participants through the discomfort rating process. Additionally, 
+            the app provides researchers with administrative capabilities to customize it according to specific study requirements, which remain inaccessible to participants.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Reordering Policy. -->
+  </div>
+</section>
+
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Real-time Data Monitoring</h2>
+        <div class="content has-text-justified">
+          <p>
+            Earlier versions of the app collects the inputted discomfort ratings from participants and stores them locally on the IFE tablet in a csv file. However,
+            this method of data collection was inefficient as researchers had to manually retrieve the data from each device and compile them into a single spreadsheet for analysis.
+            Additionally, it was challenging to monitor participants' discomfort levels in real time, as researchers had to wait until the end of the study to analyze the data, only to
+            realize that some participants had missed out on filling in the discomfort surveys at some intervals. To address these issues, I developed a feature that syncs the collected 
+            data to an online spreadsheet in real time, allowing researchers to monitor participants' discomfort feedback as it is being collected.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/zclzz/ALFRED-challenge" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-mobile" style="border-top: 1px solid #ccc; margin-bottom: 0px;">
+      <div class="column has-text-left">
+        <!-- Left-aligned text -->
+        Last updated May 2024
+      </div>
+      <div class="column has-text-right">
+        <!-- Right-aligned text -->
+        Website design inspired by Park Keunhong
+      </div>
+    </div>
+</div>
+</footer>
+
+</body>
+</html>
