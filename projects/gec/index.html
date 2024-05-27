@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1JBCZZQRE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-K1JBCZZQRE');
+  </script>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Grammatical Error Correction">
+  <meta name="keywords" content="Natural Lnaguage Processing, Large Language Models, Transformers, In-context Learning, Prefix Tuning, Grammar, GEC">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grammatical Error Correction</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://chaozhoulim.com/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../fyp/">
+            FYP project
+          </a>
+          <a class="navbar-item" href="../gcr/">
+            General Comfort Rating (GCR) System
+          </a>
+          <a class="navbar-item" href="">
+            <span class="coming-soon" style="color: red;">More coming soon!</span>
+          </a>
+          <a class="navbar-item" href="">
+            <!-- PhotoShape -->
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CoPr: In-Context Learning and Prefix Tuning for Grammar Error Correction (GEC)</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">A project for the NLP course <a href="https://nusmods.com/courses/CS4248/natural-language-processing" target="_blank">CS4248</a> taken in NUS featured on the <a href="https://uvents.nus.edu.sg/event/24th-steps/module/CS4248/project/2" target="_blank">24th SoC Term Project Showcase</a> (STePS)</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <em>By <a href="https://chaozhoulim.com/">Chao Zhou Lim</a> &bull; June 2024</em>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- Code Link -->
+            <span class="link-block">
+              <a href="https://github.com/zclzz/cs4248_project"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+            <!-- Dataset Link -->
+            <span class="link-block">
+              <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="far fa-images"></i>
+                </span>
+                <span>Dataset</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="is-size-5 publication-authors" style="text-align: center; margin-bottom: 30px;">
+        <span class="author-block" style="display: inline-block; width: 70%;">
+          Skills: Natural Language Processing &bull; Large Language Models &bull; In-context Learning &bull; Prefix Tuning &bull; Generative AI
+        </span>
+      </div>
+
+
+      <!-- New row with two columns -->
+      <div class="columns is-mobile" style="border-bottom: 1px solid #ccc; margin-bottom: 0px;">
+        <div class="column has-text-left">
+          <!-- Left-aligned text -->
+          Project Portfolio
+        </div>
+        <div class="column has-text-right">
+          <!-- Right-aligned text -->
+          13 min read
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="text-align: center;"> 
+      <img src="./static/images/poster.jpg" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+      <p style="text-align: center; font-size: 14px;">
+        Figure 1: Poster presented at the <a href="https://uvents.nus.edu.sg/event/24th-steps/module/CS4248/project/2" target="_blank">24th SoC Term Project Showcase</a> (STePS) featuring the CoPr project.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <!-- Introduction. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+        <h2 class="title is-3" style="text-align: left; font-size: 24px;">About STePS</h2>
+          <p>
+            The NUS School of Computing Term Project Showcase (<span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://uvents.nus.edu.sg/event/24th-steps" target="_blank">STePS</a></span>) is one of the largest event, similar to Trade shows, aims to bring together and present <strong>selected student projects/products</strong> in the School of Computing (SoC) to facilitate <strong>peer learning, entrepreneurship and effective employment</strong> with modern flipped career-fair approach. 
+            In addition, STePS facilitates better assessment model through multi-party assessment of course projects. It's a festive yet serious class showcase, in which students present their projects in all aspects of computer science and information systems to the respective Faculty, Industry guests, Government agencies, Sponsors and Investors 
+            for grading, to connect with potential employers and to seek opportunities for further development of their work through collaboration with Industry and Investors.
+          </p>
+          <h2 class="title is-3" style="text-align: left; font-size: 24px;">Project Description</h2>
+          <p>
+            Communication is a huge part of our way of life, <strong>grammatical errors can sometimes lead to misunderstandings</strong> while communicating especially in the absence of body languages. Credibility of the text may also seem less credible and impactful when the text is filled with grammatical errors.
+            Grammatical errors have different types, these include using <strong>wrong tenses or spelling errors</strong>. A person generally has a tendency to make the same type of errors subconsciously. By evaluating the type of error a person has already made, we can decrease ‘False Negatives’ knowing that these are errors the person is prone to make. Hence, large language models (LLM) may be able to pick up these tendencies and adjust their outputs accordingly. Being able to pick up certain 
+            tendencies will allow us to adjust the model’s output to have more confidence in predicting the <strong>same type of tendencies</strong>. Our Seq2seq model has achieved this through <strong>“In-Context Learning (ICL)”</strong> and <strong>“Prefix Tuning”</strong>.
+          </p>
+          <h2 class="title is-3" style="text-align: left; font-size: 24px;">Novelty and Objectives</h2>
+          <p>
+            Our project introduces a novel approach to GEC tasks by integrating prefix tuning, a method <strong>not previously applied specifically to GEC tasks</strong>. Additionally, while ICL has been predominantly used in classification tasks such as sentiment analysis, our work extends its application to GEC. This innovation builds upon the existing framework of LLMs, enhancing their performance through strategic <strong>fine-tuning, prefix tuning, 
+            and the novel use of ICL</strong>. These advancements represent a significant shift in the application and capability of language models in the context of grammatical error correction.
+          </p>
+          <p>
+            We assessed the performance of the baseline model using large language models (BERT, BART, T5, ChatGPT), all fine-tuned for GEC tasks. The best-performing model was ChatGPT, which achieved a <strong>Levenshtein Distance of 7.62</strong>. Experiments conducted with in-context learning and prefix tuning show that prefix tuning is more effective. We also implemented three evaluation metrics. Based on the ERRANT score, the hyperparameter-tuned T5 with 
+            prefix could potentially rank 5th in the <span class="coming-soon" style="color: rgb(0, 102, 255);"><a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">BEA 2019 (LR track)</a></span>. Further exploration with beam search has shown that it can perform better than the ChatGPT model.
+          </p>
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Introduction. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Problem Statement</h2>
+        <div class="content has-text-justified">
+          <!-- Center only the image, header is already centered -->
+          <p>
+            Let 𝑺 = {𝒔₁, 𝒔₂, …, 𝒔ₙ} represent the sentences in the dataset, these sentences contains grammatical errors that needs to be corrected. Let 𝑪 = {𝒄₁, 𝒄₂, …, 𝒄ₘ} be the set of prior corrections applied to the subset of these sentences, 𝒄ᵢ is the corrected instance/sample. Let 𝐌 represent the model being trained, 𝑪ᵢ  refers to the set of corrected instances/samples used as context, and 𝑺ᵢ₊₁ represents the subsequent target sentence. 
+          </p>
+          <p>
+            Assuming 𝑂𝑟𝑎𝑐𝑙𝑒(𝑺ᵢ₊₁) is true and the ground truth for 𝑺ᵢ₊₁:
+            Hypothesis: 𝑴(𝑪ᵢ) → 𝑺’ᵢ₊₁ ≅ 𝑂𝑟𝑎𝑐𝑙𝑒(𝑺ᵢ₊₁)
+          </p>
+          <p>
+            By feeding a few instances/samples into the model and train it with corrections as context, subsequent sentences can adapt to similar errors. This is due to the assumption of consistent patterns of mistakes, which is inherent to the writing habits of the same author in a given essay.
+          </p>
+          <p>
+            <strong>Task:</strong> Develop a Seq2seq model that can identify and perform accurate grammatical corrections to in written text. Using the <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">Write and Improve</a> (W&I) dataset along with its Locness annotations, Seq2Seq models are implemented with in-context learning and/or prefix tuning for enhanced model accuracy.  
+          </p>
+          <p>
+            Input: 𝑿 = {𝒙₁, 𝒙₂, …, 𝒙ₖ}, 𝒙ᵢ is the 𝒊-th token in the input sentence sequence and 𝙠 is length of 𝑿.<br>
+            Output: 𝒀 = {𝒚₁, 𝒚₂, …, 𝒚ₕ}, 𝒚ᵢ is the 𝒊-th token in the corrected sequence and 𝙝 is length of 𝒀.<br>
+            The length of 𝑿 and 𝒀 may defer due to insertion or deletion of tokens.
+          </p>
+          <p>
+            <strong>An example</strong> of an incorrect setence followed by its corrected annotations is as follows:<br>
+            <br>
+            S <strong> Nice i appreciate it</strong><br>
+            A 1 2|||M:PUNCT|||, I|||1|||-NONE-|||0<br>
+            A 4 4|||M:PUNCT|||.|||1|||-NONE-|||0<br>
+            <br>
+            Where after applying the corrections, the sentence becomes:<br>
+            <br>
+            <strong>Nice, I appreciate it.</strong>
+          </p>
+          <p>
+            The annotations mean that the token at position 1 should be replaced with a comma, and the token at position 4 should be replaced with a period, and M stands for the type of edit (M:PUNCT), and the last column is the confidence score.
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Data Analysis</h2>
+        <div class="content has-text-justified">
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Data Distribution</h2>
+          <img src="./static/images/data_distribution.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 2: Distribution of data featuring (a) different splits of the dataset, (b) total number of edits and (c) sentence length.
+          </p>
+          <p>
+            Figure (a) shows the distribution <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">W&I dataset</a> comprising a total of <strong>43,000 sentences</strong>, segmented into <strong>34,000 training samples, 4,000 validation samples, and 4,000 test samples</strong>. The data is categorized into different proficiency 
+            levels based on the Common European Framework of Reference for Languages (CEFR), reflecting varying degrees of <strong>language complexity</strong>. These categories are labeled as A (Beginner), B (Intermediate), 
+            C (Advanced), and N, which consists of sentences extracted from essays written by native speakers. This structure facilitates targeted language learning and assessment at appropriate difficulty levels.
+          </p> 
+          <p>
+            Figure (b) observes that the majority of sentences underwent <strong>fewer than 10 edits</strong>. Interestingly, the number of edits applied to a sentence is primarily influenced by the correctness of the content rather than its length. 
+            This means that shorter sentences can sometimes <strong>require more edits than longer ones</strong>, indicating that the need for corrections is not directly proportional to sentence length. This insight highlights the importance of focusing 
+            on the quality of the sentences rather than their size when editing.
+          </p>
+          <p>
+            Figure (c), which illustrates the distribution of sentence lengths, shows that it is not normalized, which influences the nature of the edits required. A significant portion of the sentences are <strong>shorter than 30 words</strong>, 
+            which reduces the need for contextual corrections, as shorter sentences generally present <strong>fewer contextual complexities</strong>. Additionally, there is a noticeable trend where the length of the sentences tends to increase 
+            in the C_train category, which corresponds to the advanced level. This pattern suggests that as proficiency improves, sentences not only become longer but may also require more <strong>sophisticated corrections</strong> to address <strong>higher-level language nuances</strong>.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Feature Engineering</h2>
+          <img src="./static/images/feature_engineering.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 3: Feature Engineering Analysis: (a) Distribution of Word-Based Tokens, (b) Distribution of Sentence-Based Tokens, and (c) Comparative Analysis of Character-Based vs. Word-Based Tokens.
+          </p>
+          <p>
+            Our feature engineering reveals that the standard deviation and average token count for character-based tokens are <strong>higher than those for word-based tokens</strong>. This could be attributed to the fact that character-based vocabularies tend to be smaller, 
+            particularly in languages with <strong>rich morphological structures</strong> or in datasets featuring a wide range of unique words, where word-based vocabularies expand significantly. Moreover, character-based tokenization may not yield optimal results 
+            in languages other than English, as it lacks the <strong>morphological sensitivity</strong> required to effectively parse and understand the nuances of different linguistic systems.
+          </p>
+          <p>
+            The optimal approach for Seq2Seq models involves integrating both word-level and character-level processing techniques. Methods like <strong>byte-pair encoding (BPE)</strong> or subword tokenization offer a balanced solution, capturing the strengths of both approaches. 
+            These methods efficiently bridge the gap between the granularity of character-based models and the contextual awareness of word-based systems. This hybrid strategy enhances the model's ability to handle a variety of linguistic inputs effectively, 
+            making it well-suited for complex language processing tasks.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Exploratory Data Analysis (EDA)</h2>
+          <img src="./static/images/eda_1.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 4: Error analysis: (a) training set ABC distribution (text sentences), (b) training set ABCN (text sentences with native essays).
+          </p>
+          <p>
+            Our EDA explores the W&I Locness' largest dataset ABC and ABCN which varies in liguistic levels. Dataset ABC contains only text sentences, while dataset ABCN contains text sentences and native essays written by college students.
+            The analysis indicates that the most frequent type of "error" detected is actually the absence of errors ('noop' or no-operation), suggesting that the model is often tasked with processing correct sentences rather 
+            than correcting them. Following this, punctuation mistakes ('punct') rank as the next most common type of error. This pattern highlights a significant opportunity for refining the model's training focus, particularly in enhancing its capability 
+            to identify and correct punctuation errors effectively, thereby improving overall sentence accuracy.
+          </p>
+          <p>
+            We therefore propose to enhance the model's training by incorporating additional punctuation correction tasks, using additional dataset.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Methodology</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/icl_prefix.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 5: Depiction of (a) <a href="https://nlplab.tech/blog/in-context-learning-a-new-paradigm-in-nlp/" target="_blank">In-context Learning (ICL)</a> and (b) <a href="https://arxiv.org/pdf/2101.00190" target="_blank">Prefix Tuning</a> in the Seq2Seq model.
+          </p>
+          <p>
+            The current landscape reveals a gap in applying prefix tuning specifically for GEC tasks. Similarly, ICL has not been utilized for GEC, as it is typically employed in classification tasks such as sentiment analysis. 
+            In contrast to the common use of LLMs where questions are used as prompts, ICL adopts statements as prompts. Historically, LLMs have been predominantly utilized for translation or summarization tasks. The novelty of this approach lies in leveraging 
+            the existing capabilities of LLMs but enhancing their performance through specialized techniques such as fine-tuning, prefix tuning, and ICL. This integration not only addresses specific challenges in GEC but also pushes the boundaries of what is achievable with current language model technologies.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Method 1: In-context Learning (ICL)</h2>
+          <p>
+            The models employ few-shot learning, where they efficiently learn from a limited number of examples. By presenting the model with a few instances of grammatical errors and their corresponding corrections, it can <a href="https://nlplab.tech/blog/in-context-learning-a-new-paradigm-in-nlp/" target="_blank">effectively generalize these correction patterns to new, 
+            unseen sentences.</a> This approach enables the model to rapidly adapt to specific error types and correction patterns without the need for extensive retraining. Additionally, this method supports personalized error correction. The model can learn from the specific corrections 
+            applied to common mistakes or particular stylistic preferences in an individual's writing, tailoring its responses to better meet the user's needs.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Method 2: Prefix Tuning</h2>
+          <p>
+            Prefix tuning is a method where a sequence of task-specific, continuous vectors is appended to the beginning of the input as a prefix. This technique allows for <a href="https://arxiv.org/pdf/2101.00190" target="_blank">optimization of only the prefix parameters</a>, which are then integrated into the model's hidden states across all layers, allowing the input 
+            sequence tokens to interact with these virtual tokens. This approach significantly reduces the total number of parameters needed—by up to a thousand times less than what is required for fully fine-tuning a model. It also facilitates the use of a single large language model across multiple tasks. However, 
+            in the context of GEC, this method faces specific challenges. <a href="https://arxiv.org/pdf/2101.00190" target="_blank">GEC often relies on its own pre-trained data</a>, which might not align perfectly with the ground truth annotations used for training, potentially affecting the accuracy and relevance of the corrections.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Implementation</h2>
+          <p>
+            Our project utilized multiple models, with an initial baseline established at the Intermediate Update report. These models, alongside their tokenizers, were initially sourced from a public library and were subsequently fine-tuned to better suit our specific requirements.
+          </p>
+          <p>
+            In terms of coding, the team employed multiple evaluation metrics that were both used previously and newly suggested, implementing these based on insights from a 2023 GEC survey. Additionally, various tuning strategies such as fine tuning, prefix tuning, and beam search were applied to optimize model performance.
+          </p>
+          <p>
+            For evaluation, we referenced the baseline for model fine-tuning from the BART repository. This served as a starting point for our experiments, which involved different models that were implemented and originally coded by our team. These efforts were geared towards refining our models' capabilities to more accurately address the nuances of grammatical error correction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Experiments</h2>
+        <div class="content has-text-justified">
+          <style>
+            table {
+              border-collapse: collapse; /* This ensures that adjacent borders are merged into one */
+              border-bottom: 2px solid black; /* Adds a bottom border to the table */
+            }
+            th {
+              border-bottom: 2px solid black; /* Adds a consistent top border to all header cells */
+            }
+            tr:first-child th {
+              border-top: 2px solid black; /* Removes the top border from the first row of headers */
+              border-bottom: 2px solid black; /* Adds a bottom border to the headers, matching the thickness of the top border */
+            }
+          </style>
+          <p style="text-align: center; font-size: 14px;">
+            Table 1: Experimented models and rationale.
+          </p>
+          
+          <table>
+            <tr>
+              <th style="text-align: center; width: 200px;">Models Tested</th>
+              <th style="text-align: center; width: 200px;">Experimented on</th>
+              <th style="text-align: center;">Rationale</th>
+            </tr>
+            <tr>
+              <td>BERT encoder and decoder</td>
+              <td>Fine tuning<br>
+                Original data only
+              </td>
+              <td>BERT designed with  pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers. BERT encoder can be used to identify errors effectively. Decoder was adapted to follow BERT format</td>
+            </tr>
+            <tr>
+              <td>BART</td>
+              <td>Fine tuning, prefix tuning, ICL<br>
+                Original and additional data</td>
+              <td>BART combines both an encoder (like BERT) and a decoder (like GPT), enabling it not only to understand text but also to generate or modify text based on the input. Possibly more versatile than BERT encoder and decoder</td>
+            </tr>
+            <tr>
+              <td>ChatGPT3 model</td>
+              <td>Fine tuning, prefix tuning, ICL<br>
+                Original and additional data</td>
+              <td>Chatgpt corpus is extremely large compared to other models because it uses data from the internet → board style of writing
+                Chatgpt is also very capable in generating texts</td>
+            </tr>
+            <tr>
+              <td>Text-to-text Transfer Transformer (T5)</td>
+              <td>Fine tuning, prefix tuning, ICL<br>
+                Original and additional data</td>
+              <td>Smaller model compared to the rest. T5 is a text to text transformer
+                Since T5 is prefixed with task-specific identifier, is a good candidate for us to prefix tune
+                </td>
+            </tr>
+
+          </table>
+          <p>
+            We experimented with multiple models, including BERT, BART, ChatGPT3, and T5, each fine-tuned for GEC tasks. The models were trained on the W&I dataset, with additional data incorporated to enhance their performance. 
+            The models were evaluated based on their Levenshtein Distance, which measures the number of insertions, deletions, and substitutions required to transform the model's output into the ground truth. The lower the Levenshtein Distance, the more accurate the model's predictions.
+          </p>
+          <p>
+            Our baseline Deep Learning Encoder-Decoder model was developed to address Grammatical Error Correction (GEC). However, the initial outcomes have highlighted areas for potential enhancement. The model's performance, as indicated by a low GLEU score, suggests significant room for improvement:
+            <ul>
+              <li><strong>Expand the Training Dataset:</strong> To enhance the model's ability to generalize across various grammatical errors, we plan to incorporate additional data from diverse sources into the training set.</li>
+              <li><strong>Tune Hyperparameters:</strong> We will experiment with various hyperparameters, including learning rate and batch size adjustments, to optimize the model's learning capabilities.</li>
+              <li><strong>Extend Training Duration:</strong> Increasing the number of training epochs may provide the model with adequate time to better learn and correct grammatical errors.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Results and Evaluation</h2>
+        <div class="content has-text-justified">
+          <p>
+            For this project, we used two methods of evaluation, the Levenshtein (or minimum edit) distance for ICL models and best practices: M<sup>2</sup> Score, GLEU Metric, ERRANT for tuning.
+          </p>
+
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">1. Levenshtein Distance</h2>
+          <p>
+            In our project, models employing ICL are evaluated using the Levenshtein distance metric, 
+            which calculates the minimum number of single-character edits required to transform one word into another, with each edit (insertion, deletion, or substitution) 
+            carrying a cost of one. This method, which we first encountered in course CS4248, focuses specifically on character-level changes, highlighting the detailed 
+            modifications necessary for error correction. Importantly, ICL guides the model without altering its weights, maintaining the integrity of the original model 
+            architecture while adapting it for specific correction tasks.
+          </p>
+          <style>
+            table {
+              border-collapse: collapse; /* This ensures that adjacent borders are merged into one */
+              border-bottom: 2px solid black; /* Adds a bottom border to the table */
+            }
+            th {
+              border-bottom: 2px solid black; /* Adds a consistent top border to all header cells */
+            }
+            tr:first-child th {
+              border-top: 2px solid black; /* Removes the top border from the first row of headers */
+              border-bottom: 2px solid black; /* Adds a bottom border to the headers, matching the thickness of the top border */
+            }
+          </style>
+          <p style="text-align: center; font-size: 14px;">
+            Table 1: Levenshtein distance results of baseline vs new implementations.
+          </p>
+          
+          <table>
+            <tr>
+              <th style="text-align: center;">Models Tested</th>
+              <th style="text-align: center;">Levenshtein distance</th>
+            </tr>
+            <tr style="text-align: center;">
+              <td>Baseline</td>
+              <td>69.9</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>BERT Encoder and Decoder</td>
+              <td>425.07</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>ChatGPT3 model</td>
+              <td>13.6</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>Text-to-text Transfer Transformer (T5)</td>
+              <td>10.65</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>BART</td>
+              <td>14.6</td>
+            </tr>
+
+          </table>
+          <p>
+            All the models we tested outperformed the baseline; however, BERT was an exception. BERT's architecture, primarily designed for tasks that involve understanding the context within texts rather than transforming one sequence into another, <a href="https://arxiv.org/pdf/1810.04805v2" target="_blank">lacks specific mechanisms that are essential for sequence-to-sequence tasks</a>. 
+            Unlike more conventional choices for such tasks like T5 or BART, using BERT as both encoder and decoder is atypical and might contribute to its underperformance in our tests. This highlights the importance of selecting model architectures that align with the specific requirements of the task at hand.
+          </p>
+          <p style="text-align: center; font-size: 14px;">
+            Table 2: Fine-tuned Levenshtein distance results of ChatGPT model before and after tuning. 
+          </p>
+
+          <table>
+            <tr>
+              <th style="text-align: center;">Before</th>
+              <th style="text-align: center;">After</th>
+            </tr>
+            <tr style="text-align: center;">
+              <td>13.6</td>
+              <td>7.6</td>
+            </tr>
+          </table>
+
+          <p>
+            In addition, our team went on to fine tune the ChatGPT model utilizing all its pre-existing knowledge solely for GEC task, which resulted in our best model in this project, based on LD metric. Leveraging a broad and diverse pre-existing dataset, this model capitalizes on its extensive base of linguistic knowledge, 
+            which is essential for effectively identifying and correcting grammatical errors. Through fine-tuning, we have tailored ChatGPT specifically to excel in GEC tasks, enhancing its ability to understand and rectify complex grammatical issues. This specialized adaptation not only improves the model’s accuracy but also 
+            makes it exceptionally proficient in handling the nuanced demands of grammar correction, marking it as our most effective model in this project.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">2. M<sup>2</sup>, GLEU, ERRANT</h2>
+
+          <p>
+            In our approach to tuning models for GEC tasks, we employ <a href="https://direct.mit.edu/coli/article/49/3/643/115846/Grammatical-Error-Correction-A-Survey-of-the-State" target="_blank">three "best practice" metrics: M2 Score, GLEU Metric, and ERRANT</a>. These metrics are widely recognized in the field, with ERRANT typically used for the <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">BEA 2019</a> test set, GLEU for JHU FLuency-Extended GUG (JFLEG), and M2 score for CoNLL-2014. 
+            Each of these metrics offers unique strengths and weaknesses, making the choice of the "best" metric contingent upon its correlation with ground-truth human judgments.
+          </p>
+          <p>
+            However, while ground-truth human judgments provide an intuitive benchmark for evaluating metric performance, their subjective nature warrants cautious interpretation. The reliability of these evaluations remains a topic of ongoing research, as the community continues to seek methods that can more objectively 
+            assess the effectiveness of evaluation metrics in GEC.
+          </p>
+          <p style="text-align: center; font-size: 14px;">
+            Table 3: M2, GLEU, and ERRANT metric scores for tuned BART and T5 models.
+          </p>
+          <table>
+            <tr style="text-align: center;">
+              <th>Models</th>
+                <th>Dataset</th>
+                <th>Task Prefix</th>
+                <th>M2 Score</th>
+                <th>GLEU Metric</th>
+                <th>ERRANT</th>
+            </tr>
+            <tr style="text-align: center;">
+              <td>BART</td>
+                <td>Original</td>
+                <td>"Correct the grammar: "</td>
+                <td>0.3890</td>
+                <td>0.7262</td>
+                <td>0.2004</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>BART</td>
+                <td>Additional</td>
+                <td>"Correct the grammar: "</td>
+                <td>0.3960</td>
+                <td>0.7225</td>
+                <td>0.2100</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>Original</td>
+                <td>"Correct: "</td>
+                <td>0.4341</td>
+                <td>0.7100</td>
+                <td>0.3707</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>Additional</td>
+                <td>"Correct: "</td>
+                <td>0.4804</td>
+                <td>0.7258</td>
+                <td>0.4316</td>
+            </tr>
+            <tr style="text-align: center; font-weight: bold;">
+              <td>T5</td>
+                <td>Original</td>
+                <td>"Correct grammar: "</td>
+                <td>0.4123</td>
+                <td>0.7275</td>
+                <td>0.4762</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>Original</td>
+                <td>"Rectify the grammatical errors: "</td>
+                <td>\</td>
+                <td>0.6530</td>
+                <td>0.4654</td>
+            </tr>
+          </table>
+          <p>
+            The primary metric used to evaluate the effectiveness of our models, including the top-performing T5 model on the original dataset with the prefix "Correct grammar: ", was the ERRANT metric, specifically utilizing the F<sub>0.5</sub> score. This score places more emphasis on precision than recall, making it particularly 
+            suitable for assessing the accuracy of grammatical corrections where precision is more critical. By focusing on this metric, we ensured that the model's performance was measured in a way that prioritizes the correctness of the corrections it proposes, aligning with our objectives for high-quality grammatical error correction.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">Limitations</h2>
+          <p>
+            In Context Learning (ICL) significantly hinges on the quality and relevance of its pre-training corpus. Performance is <a href="https://arxiv.org/pdf/2301.00234" target="_blank">
+            highly correlated with term frequencies observed during pre-training</a>; for domain-specific tasks, this necessitates the use of a domain-specific corpus to ensure effective performance. Moreover, ICL generally 
+            <a href="https://arxiv.org/pdf/2301.00234" target="_blank">reduced effectiveness with longer text sequences, and in certain cases, it may not adequately address specific tasks, making further fine-tuning of the pre-trained model essential to boost performance</a>.
+          </p>
+          <p>
+            Prefix Tuning also presents certain challenges. The effectiveness of this approach <a href="https://arxiv.org/pdf/2101.00190" target="_blank">relies heavily on the use of highly relevant, task-specific prefixes during fine-tuning</a>. Identifying effective prefixes can be <a href="https://arxiv.org/pdf/2101.00190" target="_blank">time-consuming and demands extensive human intervention through iterative experimentation</a>. Additionally, successful 
+            implementation of prefix tuning requires access to sufficient task-specific training data, which can be a <a href="https://arxiv.org/pdf/2101.00190" target="_blank">substantial preparatory burden</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Further Works (Optimal Sequence Selection using Beam Search)</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our analysis highlights the limitations of greedy decoding, which, by selecting the most probable next word at each step, <a href="https://arxiv.org/pdf/2108.05857" target="_blank">may not always yield the most optimal sequence</a>. 
+            For instance, in our model outputs, the sentence:<br><br> <strong>"Michael get away from there."</strong><br><br> was generated through greedy decoding, demonstrating an incorrect sequence. The correct 
+            sequence, as per the ground truth annotation, should be:<br><br> <strong>"Michael got away from there."</strong><br><br> This example underscores the need for alternative decoding strategies that can better 
+            approximate the ground truth and enhance the overall accuracy of generated sequences. We explored beam search as a potential solution to this challenge, aiming to identify the most optimal sequence
+            by considering multiple candidates at each decoding step.
+          </p>
+          <style>
+            table {
+              border-collapse: collapse; /* This ensures that adjacent borders are merged into one */
+              border-bottom: 2px solid black; /* Adds a bottom border to the table */
+            }
+            th {
+              border-bottom: 2px solid black; /* Adds a consistent top border to all header cells */
+            }
+            tr:first-child th {
+              border-top: 2px solid black; /* Removes the top border from the first row of headers */
+              border-bottom: 2px solid black; /* Adds a bottom border to the headers, matching the thickness of the top border */
+            }
+          </style>
+          <p style="text-align: center; font-size: 14px;">
+            Table 4: Top 5 prediction output by best tuned T5 model using beam search.
+          </p>
+          
+          <table>
+            <tr style="text-align: center;">
+              <th>Model</th>
+                <th>Prediction Ranking</th>
+                <th>Generated Sentence</th>
+                <th>Levenshtein Distance</th>
+                <th>Remarks</th>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>1</td>
+                <td>Michael gets away from there.</td>
+                <td>3</td>
+                <td>Top Sequence</td>
+            </tr>
+            <tr style="text-align: center; font-weight: bold;">
+              <td>T5</td>
+                <td>2</td>
+                <td>Michael got away from there.</td>
+                <td>1</td>
+                <td>Most Optimal</td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>3</td>
+                <td>Michael get away from there.</td>
+                <td>2</td>
+                <td></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>4</td>
+                <td>Michael tries to get away from there.</td>
+                <td>11</td>
+                <td></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td>T5</td>
+                <td>5</td>
+                <td>Michael goes away from there.</td>
+                <td>3</td>
+                <td></td>
+            </tr>
+          </table>
+          <p>
+            Our observations indicate that the top generated sequence from the model is not always the most optimal. For example, while the first generated sequence was ranked highest by the model, 
+            it was the second sequence that proved to be the most optimal based on Levenshtein Distance. This insight supports the use of beam search as a more effective decoding strategy. 
+            Beam search can explore a broader set of possible sequences by maintaining multiple hypotheses at each step, thereby increasing the likelihood of finding the most accurate sequence as 
+            compared to the often suboptimal results produced by greedy decoding.
+          </p>
+          <img src="./static/images/beam_search.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 6: Beam search decoding strategy, exploring multiple hypotheses at each step to identify the most optimal sequence.
+          </p>
+          <p>
+            The diagram illustrates the process of beam search in generating the sentence "Michael gets away from there." Each node represents a word generated at each time step (t=1 to t=n), 
+            with the probabilities shown in parentheses. Beam search explores multiple paths (branches), as indicated by the different arrows, effectively widening the search space compared to greedy decoding. 
+            This method maintains several potential sequences at each step and extends them based on their cumulative probabilities. The image shows how the model transitions from "Michael" to more complete phrases, 
+            ultimately leading to the ranking of top sequences. Notably, the second sequence, "Michael got away from there," marked as the Top 2 (Optimal Sequence), was identified as the most accurate by Levenshtein distance, 
+            demonstrating the effectiveness of beam search in identifying optimal sentence structures over simpler greedy approaches.
+          </p>
+          <img src="./static/images/LD_rs.png" style="width: 50%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 7: Relationship between average Levenshtein Distance and number of beams used in beam search.
+          </p>
+          <p>
+            Our analysis shows relationship between the average Levenshtein Distance (LD) and the number of beams used in the beam search, specifically examining the minimum LD across the top 5 beams. As the number of beams increases from 1 to 5, 
+            there is a noticeable decrease in the average LD, indicating an improvement in model performance. This trend supports the hypothesis that expanding the search space by considering more top beams allows the model to explore more potential sequences, 
+            thereby increasing the likelihood of finding more optimal solutions. While using more beams can be computationally demanding, the results with five beams are comparable to those of advanced models like ChatGPT, suggesting a strategic balance 
+            between computational expense and performance enhancement. This highlights the effectiveness of utilizing a larger search space, despite the inherent computational costs.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>Throughout our research, models exhibited improved performance with various tuning approaches, although the integration of In-Context Learning (ICL) with either prefix tuning or fine-tuning did not lead to better outcomes. This suggests that these methodologies might not complement each other effectively, nor enhance the model's grammatical accuracy or flexibility.</p>
+          <p>To refine our tuning strategies, we incorporated three additional metrics: M2 Score, GLEU Metric, and ERRANT, employing Minimum Edit Distance specifically for evaluating ICL.</p>
+          <p>Additionally, we explored the utilization of beam search to identify optimal sequences, which has shown promising results and provides a good direction for future research. The use of the T5 model, with prefix and hyperparameter tuning, notably <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">ranked 5th in the BEA 2019 LR track</a>, highlighting its effectiveness.</p>
+          <p>Overall, the result of ranking our models on its performance on the GEC task is as follows:</p>
+          <ol>
+              <li>ChatGPT (fine-tuned)</li>
+              <li>T5 (prefix tuned)</li>
+              <li>ChatGPT (in-context learning)</li>
+              <li>BART (prefix tuned)</li>
+          </ol>
+          <p>
+            To effectively extract and generalize grammatical information from LLMs, fine-tuning them on individual user essays has proven beneficial. ICL is particularly adept at capturing unique grammatical error patterns specific to each user, due to the personalized nature of errors. Regarding the performance of ICL and Prefix Tuning 
+            in GEC tasks, our experimental data indicates that Prefix Tuning generally outperforms ICL. This can be attributed to the fact that ICL requires an LLM trained on a highly diverse dataset, whereas Prefix Tuning can directly enhance GEC performance even without extensive dataset diversity.
+          </p>
+          <p>
+            In addition to traditional performance metrics like Minimum Edit Distance, which we have explored in academic lectures, our research incorporates several novel indicators from the <a href="https://arxiv.org/abs/2211.05166" target="_blank">GEC2023 survey</a>. These new metrics have not only broadened our analytical tools but also contributed to our models' rankings in the <a href="https://www.cl.cam.ac.uk/research/nl/bea2019st/" target="_blank">BEA 2019 competition</a>. 
+            This comprehensive approach allows us to more accurately measure and enhance the effectiveness of our grammatical correction models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Acknowledgements</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/photo.jpg" style="width: 50%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 8: Photo of some team members with course Professor Kan Min-Yen (left) and project mentor Yisong Miao (right) after the event.
+          </p>
+          <p>
+            We are thankful for our mentor, <a href="https://yisong.me/" target="_blank">Yisong Miao</a> for his invaluable guidance and support throughout this project. His insights and suggestions have been very helpful in shaping the direction of our project. 
+            Specifically, we are grateful for his introduction of the concepts of In-Context Learning and Prefix Tuning, which have become part of our project's approach. Yisong's mentorship has been truly beneficial, 
+            and we are privileged to have had the opportunity to learn from his expertise.
+          </p>
+          <p>
+            We are deeply appreciative of the valuable notes and lessons provided by Professors Christian von der Weth and Min-Yen Kan. Their insightful lectures and materials have significantly increased our interest 
+            in NLP and enhanced our understanding of the field, thereby aiding us in the development of our baseline models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/zclzz/ALFRED-challenge" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-mobile" style="border-top: 1px solid #ccc; margin-bottom: 0px;">
+      <div class="column has-text-left">
+        <!-- Left-aligned text -->
+        Last updated May 2024
+      </div>
+      <div class="column has-text-right">
+        <!-- Right-aligned text -->
+        Website design inspired by Park Keunhong
+      </div>
+    </div>
+</div>
+</footer>
+
+</body>
+</html>
