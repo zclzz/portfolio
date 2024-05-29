@@ -203,10 +203,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: center;">The Problem</h2>
+        <h2 class="title is-3" style="text-align: left;">The Problem</h2>
         <div class="content has-text-justified">
           <!-- Center only the image, header is already centered -->
-          <img src="./static/images/miscomm.png" style="width: 60%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <img src="./static/images/comm_error.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 1: (a) Failure analysis of baseline model, (b) miscommunication errors in high-level task instructions.
+          </p>
           <p>
             Miscommunication between humans and agents continues to be a significant challenge in task-oriented interactions, as highlighted by failure analysis 
             across dataset. These miscommunication errors often arise from ambiguously worded or contradictory high-level task instructions provided by humans. 
@@ -216,6 +219,70 @@
             Instead, there is a pressing need for agents to be developed with robust capabilities to interpret and navigate through these miscommunication errors effectively, 
             ensuring more reliable and successful task completion.
           </p>
+
+          <p style="text-align: center; font-size: 14px;">
+            Table 1: Example of miscommunication errors in high-level task instructions in the ALFRED dataset.
+          </p>
+          <table border="1" style="width:100%; border-collapse:collapse;">
+            <tr style="text-align: center; background-color: #f2f2f2;">
+                <th>Error Type</th>
+                <th>High Level Task</th>
+                <th>Ground Truths</th>
+            </tr>
+            <tr style="text-align: left;">
+                <td>(Ambiguous) Example A</td>
+                <td>"Turn on the living room lamp"</td>
+                <td>Task type: look at obj in light, <span style="color:red;">object target: Vase</span>, moveable receptacle target: None, parent target: None, sliced: 0</td>
+            </tr>
+            <tr style="text-align: left;">
+                <td>(Ambiguous) Example B</td>
+                <td>"Put cup in the sink"</td>
+                <td>Task type: pick and place with movable recep, <span style="color:red;">object target: Fork</span>, moveable receptacle target: Cup, parent target: Sink Basin, sliced: 0</td>
+            </tr>
+            <tr style="text-align: left;">
+                <td>(Contradicting) Example C</td>
+                <td>"Place a cold lettuce on the <span style="color:red;">table</span>"</td>
+                <td>Task type: cool and place, object target: Lettuce, moveable receptacle target: None, <strong>parent target: Counter Top</strong>, sliced: 0</td>
+            </tr>
+            <tr style="text-align: left;">
+                <td>(Contradicting) Example D</td>
+                <td>"Put a <span style="color:red;">cup</span> with spoon on the counter to the left of the stove"</td>
+                <td>Task type: pick and place with movable recep, object target: Spoon, <strong>moveable receptacle target: Mug</strong>, parent target: Counter Top, sliced: 0</td>
+            </tr>
+          </table>
+          <p>
+            Ambiguity refers to tasks that are too vague or provide little to
+            no helpful information while contradiction errors refer to instructions that contain
+            information that deviates from the ground truth. Table 1 shows two examples each of
+            both vague and contradicting instructions and their corresponding ground truths.
+
+            Task type is one of the seven task types in the ALFRED dataset. Object targets refer to moveable objects that the agent should interact
+            with. Moveable receptacles are items that the agent can use to put small items in
+            to fulfill task type of stack and place. The parent target is a receptacle for the
+            agent to place the object target on (the object target’s final destination). Lastly,
+            the "sliced" argument represents if the task involves cutting/slicing objects with a
+            knife. In Table 1 the high-level instruction of ambiguous example A tasks the
+            agent to "turn on the living room lamp" but does not specify the need for the object
+            target which in this case is a "Vase", as required by the ground truth for the task to
+            succeed if executed correctly. The LLM used to predict the instruction arguments
+            will not know that a "Vase" is required for this task and will ultimately result in a
+            wrong or ’None’ type prediction (no target objects required which is impossible as
+            every task in ALFRED requires interacting with a target object).
+          </p>
+          <p>
+            On the other hand, the table also demonstrates contradictions in the task
+            dataset where different objects and moveable receptacles or parent targets were
+            specified in the high-level instructions, which differ from the ground truths. In
+            contradicting example C, the given human instruction tasks the agent to "place a
+            cold lettuce on the table", which takes place in the scene of kitchen. This is vague
+            and wrong according to the ground truth, and a clearer, correct task instruction
+            aligning with its ground truth would be "place a cold lettuce on the countertop".
+          </p>
+          <p>
+            The failure analysis sets a basis of the goal of my FYP, which is to develop a methodolgy to handle these natural language miscommunication errors effectively
+            and improve the success rate of the agent in executing high-level task instructions, ultimately surpassing my state-of-the-art baseline systems.
+          </p>
+
         </div>
       </div>
     </div>
@@ -228,11 +295,75 @@
     <!-- Reordering Policy. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Reordering Policy</h2>
+        <h2 class="title is-3" style="text-align: left;">Methodolgy</h2>
         <div class="content has-text-justified">
+          <p>
+            My proposed strategy enhances two key aspects of Prompter: language understanding
+            and interaction planning. The language understanding component leverages
+            the LLM to parse complex task instructions into multiple, task-specific arguments.
+            These distilled instruction arguments are then relayed to the planner, which devises a
+            tailored action plan for each set of instruction arguments to generate multiple action
+            sequences. Following a partially observable Markov decision strategy, I utilized the
+            agent’s egocentric vision and object recognition to formulate an optimal reordering
+            policy. The policy captures the top action sequences from the language model
+            and reorders them according to a sophisticated reordering policy, finally taking the
+            best action sequence that suits the task according to the agent’s environment.
+          </p>
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">1. Improved Language Understanding</h2>
+          <img src="./static/images/predictions.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            Figure 2: Considering top k candidates from the LLM rather than using greedy decoding to select the best action sequence.
+          </p>
+
+          <p>
+            I evaluate the performance of various language models I have trained to determine
+            the most effective one. Through this comparison, I found the Text-to-text Transfer Tansformer (T5) model to be the
+            most suitable for my strategy in addressing the ALFRED challenge. Subsequently,
+            I further enhance the T5 model’s accuracy by applying a hyperparameter tuning,
+            and beam search algorithm to refine its prediction capabilities. The beam search
+            algorithm, by considering multiple hypotheses at once, allows for a more nuanced and
+            comprehensive analysis of potential outcomes, significantly increasing the likelihood
+            of selecting the most accurate instruction arguments. This enhanced approach not
+            only streamlines the process by consolidating the need for multiple models into a
+            singular, more capable model but also improves the overall efficiency and accuracy of
+            the system. By integrating the T5 model with a beam search refinement, the strategy
+            demonstrates a marked improvement in handling complex and vague instruction sets,
+            thus providing a robust solution for the intricacies involved in solving the ALFRED
+            challenge.
+          </p>
+          <img src="./static/images/beam_search.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
+            Figure 3: Beam search algorithm considers multiple hypotheses at once to refine the prediction of instruction arguments.
+          </p>
+          <p>
+            Unlike greedy algorithms which only keep the single best state, or breadth-first search, which expands all
+            nodes, Beam Search balances between these approaches by maintaining a predefined
+            width of the beam, denoted as B. This width controls the number of nodes expanded
+            at each level of the search, allowing Beam Search to efficiently navigate through
+            the vast search space of possible text sequences while mitigating the computational
+            expense associated with breadth-first search. In the context of ALFRED, the Beam
+            Search algorithm is utilized during the decoding phase, where the T5 model aims to
+            generate a sequence of tokens (words) that form the instructional arguments.
+          </p>
+          <p>
+            At each time step, the model computes the probability of the next word from its
+            vocabulary, given the previous words, and retains the top 5 words with the highest
+            computed probability. For the sake of brevity and illustration, I have omitted other
+            branches of the search space, and arbitrary probability values (shown in brackets)
+            were used. For each of the top 5 words, another set of probabilities for the top 5 words
+            are computed as well and the process repeats until the generated sentence encounters
+            an end-of-sentence (EOS) token. The overall probabilities of the generated sentences
+            are computed, forming subsequent beam predictions. From Figure 5.3, it can be
+            observed that the top predictions generated from the task instruction are not always
+            correct, and more exploration of the possible combinations in the search space is
+            required, especially since the task instruction contradicts the ground truth.
+          </p>
+
+
+          <h2 class="title is-small" style="text-align: left; font-size: 20px;">2. Action Sequence Reordering Policy</h2>
           <img src="./static/images/reordering_policy.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
           <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
-            The agent updates an object count vector during exploration to assess the likelihood of task completion for each action sequence
+            Figure 4: The agent updates an object count vector during exploration to assess the likelihood of task completion for each action sequence
           </p>
           <p>
             After obtaining a top k action sequences from the large language model, the reordering policy aims to select the optimal sequence that maximizes the likelihood of task completion.
@@ -246,13 +377,21 @@
                     type="video/mp4">
           </video>
           <p style="text-align: center; font-size: 14px;">
-            At T = 100, the agent applies the reordering policy to select the best action sequence to execute the task: place lettuce on CounterTop.
+            Figure 5: At T = 100, the agent applies the reordering policy to select the best action sequence to execute the task: place lettuce on CounterTop.
           </p>
           <p>
             Each action sequence is evaluated by calculating the likelihood of task completion based on the object count vector and the action sequence. It does so by assigning
             higher utility score to sequences whose objects were observed more frequently during the exploration phase, while penalizing sequences that require objects that were not observed. 
             Unseen receptacles are penalized more heavily than unseen objects, due the the higher likelihood of unseen receptacles leading to task failure. The agent then selects the sequence with the highest utility score to execute.
-            
+          </p>
+          <p>
+            By exploring the environment initially before deciding its best course of action,
+            the agent gains critical insights into the current state, allowing it to strategically
+            prioritize and select the most viable action sequence. This preliminary exploration
+            is instrumental in navigating the complexities and uncertainties inherent in dynamic
+            settings, ultimately leading to more informed and effective decision-making under
+            uncertainty.
+          </p>
 
         </div>
       </div>
@@ -266,7 +405,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3" style="text-align: left;">Results</h2>
         <div class="content has-text-justified">
           <p>
             I employed <span class="text-color" style="color: blue;"><a href="https://askforalfred.com/">ALFRED</a></span> to evaluate my method. In ALFRED, environments are categorized into three splits: 'train,' 'validation,' and 'test.' 
@@ -281,11 +420,86 @@
             The results demonstrate the effectiveness of my proposed methods in handling high-level task instructions
             and optimizing action sequences for partially observed environmental states.
           </p>
-          <img src="./static/images/results.png" style="width: 60%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
-          <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
-            Comparative analysis of my model against my state-of-the-art baseline systems with underlined values indicating the best performance in each comparison.
+          <p style="text-align: center; font-size: 14px;">
+            Table 2: Comparative analysis of my model against my state-of-the-art baseline systems with underlined values indicating the best performance in each comparison.
           </p>
-
+          <table style="width:100%; border-collapse: collapse; margin: 20px 0; border: 1px solid black;">
+            <tr>
+                <th style="background-color: #f2f2f2; padding: 8px; border: 1px solid black;">Metrics</th>
+                <th style="background-color: #f2f2f2; padding: 8px; border: 1px solid black;">My Agent</th>
+                <th style="background-color: #f2f2f2; padding: 8px; border: 1px solid black;">Prompter</th>
+                <th style="background-color: #f2f2f2; padding: 8px; border: 1px solid black;">FILM</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;" colspan="4"><strong>Validation Unseen Set:</strong></td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Total Episodes: 821</td>
+                <td style="padding: 8px; border: 1px solid black;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Success Rate (SR)</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.555</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.533</td>
+                <td style="padding: 8px; border: 1px solid black;">0.201</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Goal Condition (GC) Success</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.654</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.630</td>
+                <td style="padding: 8px; border: 1px solid black;">0.325</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">PLWSR</td>
+                <td style="padding: 8px; border: 1px solid black;">0.137</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.196</u></td>
+                <td style="padding: 8px; border: 1px solid black;">NA</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">PLWGC</td>
+                <td style="padding: 8px; border: 1px solid black;">0.158</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.217</u></td>
+                <td style="padding: 8px; border: 1px solid black;">NA</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;" colspan="4"><strong>Test Unseen Set:</strong></td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Total Episodes: 1529</td>
+                <td style="padding: 8px; border: 1px solid black;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Leaderboard Ranking</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>13</u></td>
+                <td style="padding: 8px; border: 1px solid black;">18</td>
+                <td style="padding: 8px; border: 1px solid black;">27</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Success Rate (SR)</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.486</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.426</td>
+                <td style="padding: 8px; border: 1px solid black;">0.265</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">Goal Condition (GC) Success</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.598</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.588</td>
+                <td style="padding: 8px; border: 1px solid black;">0.364</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">PLWSR</td>
+                <td style="padding: 8px; border: 1px solid black;">0.155</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.208</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.106</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid black;">PLWGC</td>
+                <td style="padding: 8px; border: 1px solid black;">0.190</td>
+                <td style="padding: 8px; border: 1px solid black;"><u>0.262</u></td>
+                <td style="padding: 8px; border: 1px solid black;">0.143</td>
+            </tr>
+          </table>
+        
         </div>
       </div>
     </div>
