@@ -133,3 +133,44 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+/* Basic Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-content a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar-content a:hover, .sidebar-content a.active {
+  background-color: #ddd;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 200px; /* Adjust based on sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive Sidebar Styles */
+@media (max-width: 768px) {
+  .sidebar {
+      left: -200px; /* Hide sidebar by shifting it out of the viewport */
+  }
+
+  .main-content {
+      margin-left: 0; /* Allow content to expand to full width */
+  }
+}

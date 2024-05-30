@@ -20,11 +20,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/my_logo3.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <style>
+      html {
+          scroll-behavior: smooth;
+      }
+    </style>
+
   </head>
 
   <body>
-  <!-- <div class="sidebar">
+  <!-- <button class="sidebar-toggle" style="position: fixed; top: 10px; left: 210px; z-index: 1001;">Toggle Menu</button>
+  <div class="sidebar">
     <div class="sidebar-content">
       <a href="#top">About me</a>
       <a href="#Experience" class="active">Experience</a>
@@ -67,7 +73,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px; padding-bottom:0px;width:100%;vertical-align:middle; border-bottom: 1px solid #ccc;">
-                <h2 style="margin-bottom: 0px;">Experience</h2>
+                <h2 id="Experience" style="margin-bottom: 0px;">Experience</h2>
                 <!-- <p>
                   I only list my most recent work experience here. For the full list, please <a href="mailto:chaozhoulim@gmail.com?subject=Portfolio:%20[CV%20Request]">request for my CV</a>!
                 </p> -->
@@ -155,7 +161,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td style="padding:20px; padding-bottom:0px;width:100%;vertical-align:middle; border-bottom: 1px solid #ccc;">
-                <h2>Projects</h2>
+                <h2 id="Projects">Projects</h2>
                 <p>
                   I have worked on a wide range of projects, from AI/ML research to robotics and even a little bit of software development. Most of my works are school projects or internship related. 
                   Here are some of my notable projects, where I document them in a blog-post format. <span class="coming-soon" style="color: rgb(0, 102, 255);"><strong>Click on them</strong></span> to find out more!
@@ -389,7 +395,7 @@
                   </ul>
                 </p>
                 <p style="font-size: 13px;">
-                  <em><strong>Skills</strong>: Robotics &bull; Computer Vision &bull; Python &bull; Microcontroller &bull; Sensors &bull; IoT </em>
+                  <em><strong>Skills</strong>: Robotics &bull; Computer Vision &bull; Python &bull; ROS &bull; Microcontroller &bull; Sensors &bull; IoT </em>
                 </p>
               </td>
             </tr>
@@ -442,7 +448,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td style="padding:20px; padding-bottom:0px;width:100%;vertical-align:middle; border-bottom: 1px solid #ccc;">
-                <h2>Awards</h2>
+                <h2 id="Awards">Awards</h2>
               </td>
             </tr>
           </tbody></table>
@@ -476,5 +482,17 @@
           </td>
       </tr>
     </table>
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const toggleButton = document.querySelector('.sidebar-toggle');
+          const sidebar = document.querySelector('.sidebar');
+  
+          toggleButton.addEventListener('click', function() {
+              // Toggle sidebar visibility
+              sidebar.style.left = sidebar.style.left === '0px' ? '-200px' : '0px';
+          });
+      });
+    </script> -->
+  
   </body>
 </html>        
