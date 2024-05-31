@@ -134,43 +134,143 @@ span.highlight {
   background-color: #ffffd0;
 }
 
-/* Basic Sidebar Styles */
-.sidebar {
+.header {
   position: fixed;
-  left: 0;
   top: 0;
-  width: 200px;
-  height: 100%;
-  background-color: #f4f4f4;
-  overflow-y: auto;
-  transition: left 0.3s ease;
+  left: 0;
+  right: 0;
+  background: #f4f4f4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  display: flex;
+  justify-content: center; /* Align header content in the center */
+  align-items: center;
+  padding: 0 20px;
+  height: 50px; /* Fixed height for the header */
 }
 
-.sidebar-content a {
-  display: block;
-  padding: 10px 20px;
+.header-inner {
+  display: flex;
+  justify-content: space-between; /* Space between name and nav links */
+  align-items: center;
+  width: 100%; /* Use full width of the header */
+  max-width: 800px; /* Max width same as page content */
+}
+
+.header-name {
+  font-size: 20px; /* Adjust as needed */
+  font-weight: bold; /* Bold for visibility */
+}
+
+.header-content {
+  display: flex;
+  justify-content: center; /* Centralize the navigation links */
+  align-items: center;
+}
+
+.header-content a {
+  padding: 10px 15px;
   text-decoration: none;
   color: black;
+  display: inline-block;
+  font-size: 15px; /* Increased font size for links */
 }
 
-.sidebar-content a:hover, .sidebar-content a.active {
+.header-content a:hover, .header-content a.active {
   background-color: #ddd;
 }
 
-/* Main Content */
-.main-content {
-  margin-left: 200px; /* Adjust based on sidebar width */
-  transition: margin-left 0.3s ease;
+.hamburger {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 10px; /* Ensure it does not overlap */
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-/* Responsive Sidebar Styles */
+@media (max-width: 768px) {
+  .header-content {
+    display: none; /* Hide navigation links on smaller screens */
+  }
+  .hamburger {
+    display: block; /* Show the hamburger icon */
+  }
+}
+
+.sidebar {
+  height: 100%;
+  width: 0; /* Start out fully collapsed */
+  position: fixed;
+  z-index: 1001; /* Ensures sidebar is on top of other content */
+  top: 0;
+  left: 0;
+  background-color: #f4f4f4; /* Same as header */
+  overflow-x: hidden; /* Prevents any horizontal scroll */
+  transition: 0.5s; /* Smooth transition for opening and closing */
+  padding-top: 60px; /* Provides some space at the top */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px; /* Ensures the header does not touch the sides */
+  margin-top: 0px;
+  font-size: 30px; /* Increased font size for visibility */
+  color: black;
+}
+
+.closebtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0 10px; /* Padding for touch area */
+  color: black;
+}
+
+.navigation-title {
+  padding: 10px 15px;
+  font-size: 20px;
+  color: black;
+  border-bottom: 1px solid black; /* Subtle bottom border */
+  margin: 10px 15px 0 15px; /* Ensures border does not touch the sides */
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  margin: 0 15px 10px 15px; /* Ensures alignment with the border of 'Navigation' */
+  margin-bottom: 30px; /* Spacing between links */
+  margin-top: 20px; /* Spacing between links and the border */
+}
+
+.sidebar a:hover {
+  color: #f09228;
+}
+
+/* Ensures the sidebar opens with enough width and transitions properly */
 @media (max-width: 768px) {
   .sidebar {
-      left: -200px; /* Hide sidebar by shifting it out of the viewport */
-  }
-
-  .main-content {
-      margin-left: 0; /* Allow content to expand to full width */
+    width: 300px; /* Sets the width when the sidebar is open */
   }
 }
+
+
+/* Additional CSS to ensure the header does not block content when navigating to anchors */
+:target:before {
+  content: "";
+  display: block;
+  height: 70px; /* same height as header */
+  margin-top: -70px; /* negative margin to pull up the target content */
+  visibility: hidden;
+}
+

@@ -29,24 +29,39 @@
   </head>
 
   <body>
-  <!-- <button class="sidebar-toggle" style="position: fixed; top: 10px; left: 210px; z-index: 1001;">Toggle Menu</button>
-  <div class="sidebar">
-    <div class="sidebar-content">
+    <div class="header">
+      <div class="header-inner"> <!-- Wrapper for better control -->
+        <div class="header-name">Chao Zhou</div>
+        <div class="header-content">
+            <a href="#top">About me</a>
+            <a href="#Experience">Experience</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Awards">Awards</a>
+        </div>
+        <button class="hamburger">&#9776;</button>
+      </div>
+    </div>
+
+    <div class="sidebar" id="mySidebar">
+      <div class="sidebar-header">
+          <span>Chao Zhou</span>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10005;</a>
+      </div>
+      <p class="navigation-title">Navigation</p>
       <a href="#top">About me</a>
-      <a href="#Experience" class="active">Experience</a>
+      <a href="#Experience">Experience</a>
       <a href="#Projects">Projects</a>
       <a href="#Awards">Awards</a>
     </div>
-  </div> -->
-    
+                    
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Lim Chao Zhou
+                <p class="name" style="text-align: center; margin-top: 20px;">
+                  LIM Chao Zhou
                 </p>
                 <p>
                   Hello! You have arrived at my personal homepage. I am a fresh graduate student at the National University of Singapore (NUS). My <a href="projects/fyp/" target="_blank">final year research</a> focused on using natural language to command embodied artificial intelligence, advised by Dr. Kim Jung-Jae and Dr. Goh Shen-Tat.
@@ -133,7 +148,7 @@
           function AMA_stop() {
             document.getElementById('ama').style.opacity = "0.5";
           }
-          NUS_stop()
+          AMA_stop()
         </script>
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
@@ -482,17 +497,39 @@
           </td>
       </tr>
     </table>
-    <!-- <script>
+    <script>
       document.addEventListener('DOMContentLoaded', function() {
-          const toggleButton = document.querySelector('.sidebar-toggle');
-          const sidebar = document.querySelector('.sidebar');
-  
-          toggleButton.addEventListener('click', function() {
-              // Toggle sidebar visibility
-              sidebar.style.left = sidebar.style.left === '0px' ? '-200px' : '0px';
+          const hamburger = document.querySelector('.hamburger');
+          const sidebar = document.getElementById('mySidebar');
+
+          // Toggle sidebar function
+          function toggleSidebar() {
+              sidebar.style.width = sidebar.style.width === '300px' ? '0' : '300px';
+          }
+
+          // Close the sidebar
+          function closeSidebar() {
+              sidebar.style.width = "0";
+          }
+
+          // Event listener for hamburger icon
+          hamburger.addEventListener('click', function() {
+              toggleSidebar();
+          });
+
+          // Optional: Close sidebar when a link inside is clicked
+          document.querySelectorAll('.sidebar a').forEach(link => {
+              link.addEventListener('click', closeSidebar);
+          });
+
+          // Listen for window resize to adjust sidebar visibility
+          window.addEventListener('resize', function() {
+              if (window.innerWidth > 768) {
+                  closeSidebar();  // Close sidebar when the window is resized larger than 768px
+              }
           });
       });
-    </script> -->
-  
+    </script>
+                                                
   </body>
 </html>        
