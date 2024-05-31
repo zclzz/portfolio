@@ -260,7 +260,6 @@ span.highlight {
 /* Ensures the sidebar opens with enough width and transitions properly */
 @media (max-width: 768px) {
   .sidebar {
-    width: 300px; /* Sets the width when the sidebar is open */
   }
 }
 
