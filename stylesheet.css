@@ -105,7 +105,7 @@ h2 {
 .name {
   padding-top: 20px;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'courier', sans-serif;
   font-size: 25px;
 }
 
@@ -160,6 +160,7 @@ span.highlight {
 .header-name {
   font-size: 20px; /* Adjust as needed */
   font-weight: bold; /* Bold for visibility */
+  font-family: "brush script mt", sans-serif;
 }
 
 .header-content {
