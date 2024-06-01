@@ -106,7 +106,7 @@ h2 {
   padding-top: 20px;
   margin: 0;
   font-family: 'courier', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .one {
@@ -160,7 +160,7 @@ span.highlight {
 .header-name {
   font-size: 20px; /* Adjust as needed */
   font-weight: bold; /* Bold for visibility */
-  font-family: "brush script mt", sans-serif;
+  font-family: "cursive"; /* Cursive font for name */
 }
 
 .header-content {
