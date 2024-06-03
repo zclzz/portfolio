@@ -20,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/my_logo3.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="skillbar.css">
     <style>
       html {
           scroll-behavior: smooth;
@@ -35,9 +36,11 @@
           <a href="/" style="text-decoration: none; color: inherit;">{ Chao Zhou; }</a>
         </div>
         <div class="header-content">
+          <a href="#top">Home</a>
             <a href="#top">About me</a>
             <a href="#Experience">Experience</a>
             <a href="#Projects">Projects</a>
+            <a href="#Skills">Skills</a>
             <a href="#Awards">Awards</a>
         </div>
         <button class="hamburger">&#9776;</button>
@@ -50,9 +53,11 @@
           <button class="closebtn" onclick="closeSidebar()">×</button>
         </div>
       <p class="navigation-title">Navigation</p>
+      <a href="#top">Home</a>
       <a href="#top">About me</a>
       <a href="#Experience">Experience</a>
       <a href="#Projects">Projects</a>
+      <a href="#Skills">Skills</a>
       <a href="#Awards">Awards</a>
     </div>
                     
@@ -452,15 +457,198 @@
                 </p>
               </td>
             </tr>
+          
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px; padding-bottom:0px;width:100%;vertical-align:middle; border-bottom: 1px solid #ccc;">
+                <h2 id="Skills" style="margin-bottom: 0px;">Capabilities</h2>
+                <p>
+                  Here's what I can do!
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <div class="skills-container">
+              <div class="skill-container">
+                  <p>Machine Learning</p>
+                  <!-- <p><strong>Machine Learning</strong></p> -->
+                  <div class="percentage machinelearning-percentage">70%</div>
+                  <div class="bar">
+                      <span class="machinelearning"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I have worked on a wide range of ML projects and developed most of them in Python. Here are some of the ML algorithms I have worked with:
+                  </p>
+                  <p style="font-size: 13px; padding: 5px;">Supervised & Unsupervised Machine Learning &bull; Classification & Regression Models &bull; KNN &bull; Clustering &bull; SVM &bull; Decision Trees &bull; 
+                    Naive Bayes &bull; Ensemble & Voting Classifiers &bull; Deep Learning &bull; Natural Language Processing
+                  </p>
+
+              </div>
+  
+              <div class="skill-container">
+                  <p>Artificial Intelligence</p>
+                  <div class="percentage ai-percentage">40%</div>
+                  <div class="bar">
+                      <span class="ai"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I took a few courses in AI, and have implemented some paradigms in my assignments and projects. Here are some of the AI algorithms I have worked with:
+                  </p>
+                  <p style="font-size: 13px; padding: 5px;">Reinforcement Learning &bull; Game Theory &bull; POMDP &bull; Q-learning &bull; DQN &bull; A3C &bull; Policy Gradient &bull; 
+                    Generative AI &bull; AI Planning and Decision Making &bull; Robotics
+                  </p>
+
+              </div>
+  
+              <div class="skill-container">
+                  <p>Neural Networks</p>
+                  <div class="percentage neuralnetworks-percentage">50%</div>
+                  <div class="bar">
+                      <span class="neuralnetworks"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I am comfortable with building simple neural networks and have deployed open source models for larger scale projects. Here are some of the neural networks I have worked with:
+                  </p>
+                  <p style="font-size: 13px; padding: 5px;">CNN &bull; RNN &bull; LSTM &bull; Large Language Models &bull; Transformers &bull; VGG &bull; ResNet &bull; Inception &bull; 
+                    YOLO &bull; SSD &bull; U-Net
+                  </p>
+
+              </div>
+  
+              <div class="skill-container">
+                  <p>Tools & Libraries</p>
+                  <div class="percentage tools-percentage">60%</div>
+                  <div class="bar">
+                      <span class="tools"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    Most of my projects are developed in Python, and I have experience with a wide range of libraries and tools. Here are some of the tools and libraries I have worked with:
+                  </p>
+                  <p style="font-size: 13px; padding: 5px;">OpenCV • TensorFlow • Media Pipe • Open Pose • Keras • Sci-Kit Learn • Hugging Face • PyTorch • Pandas • Numpy • Matplotlib • Seaborn • 
+                    Plotly • Google Apps Script • Google Apps API
+                  </p>
+
+              </div>
+  
+              <div class="skill-container">
+                  <p>Hardware & Systems</p>
+                  <div class="percentage hardware-percentage">30%</div>
+                  <div class="bar">
+                      <span class="hardware"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    Coming from an engineering background, I offer skill sets in both software and hardware.
+                  </p>
+                  <p style="font-size: 13px; padding: 5px;">GPU • CUDA • Linux • Jupyter • Microcontrollers • Sensors • Servos &bull; Circuits
+                  </p>
+
+              </div>
+              <div class="skill-container">
+                <p>Software</p>
+                <div class="percentage hardware-percentage">30%</div>
+                <div class="bar">
+                    <span class="hardware"></span>
+                </div>
+                <p style="font-size: 15px; margin-top: 8px;">
+                  I use software tools mostly for simulation and CAD for my engineering projects. Never really had the opportunity to hone them.
+                </p>
+                <p style="font-size: 13px; padding: 5px;">CAD SolidWorks • Fusion 360 • MATLAB • Mathematica • COMSOL Multiphysics • Android • Git
+                </p>
+              </div>
+            </div>
+
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px; padding-bottom:0px;width:100%;vertical-align:middle;">
+                <h2 id="Experience" style="margin-bottom: 0px; font-size: 20px;">Programming Languages</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <div class="skills-container">
+              <div class="skill-container">
+                <p>Python</p>
+                <!-- <p><strong>Machine Learning</strong></p> -->
+                <div class="percentage python-percentage">70%</div>
+                <div class="bar">
+                    <span class="python"></span>
+                </div>
+                <p style="font-size: 15px; margin-top: 8px;">
+                  I am comfortable developing with python, and have used it for most of my projects.
+                </p>
+
+              </div>
+
+              <div class="skill-container">
+                  <p>Java</p>
+                  <div class="percentage java-percentage">50%</div>
+                  <div class="bar">
+                      <span class="java"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I have took courses in Java and have used it for development in my school projects. The backend of the <a href="projects/gcr/">General Comfort Rating App</a> was developed in Java.
+                  </p>
+              </div>
+
+              <div class="skill-container">
+                  <p>JavaScript, HTML, CSS</p>
+                  <div class="percentage javascript-percentage">20%</div>
+                  <div class="bar">
+                      <span class="javascript"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I built this portfolio with JavaScript, HTML and CSS. This project was one of my first few attempts at web development.
+                  </p>
+
+              </div>
+
+              <div class="skill-container">
+                  <p>XML</p>
+                  <div class="percentage xml-percentage">60%</div>
+                  <div class="bar">
+                      <span class="xml"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    Picked up development using XML for the frontend of the <a href="projects/gcr/">General Comfort Rating App</a>. Safe to say I have gotten the hang of it.
+                  </p>
+
+              </div>
+
+              <div class="skill-container">
+                  <p>ROS</p>
+                  <div class="percentage ros-percentage">30%</div>
+                  <div class="bar">
+                      <span class="ros"></span>
+                  </div>
+                  <p style="font-size: 15px; margin-top: 8px;">
+                    I have used ROS for my internship at <a href="https://amaasia.net/" target="_blank">AMA</a> to train the collaborative robot, within a Gazebo physics simulator.
+                  </p>
+              </div>
+              <div class="skill-container">
+                <p>C++</p>
+                <div class="percentage cplus-percentage">20%</div>
+                <div class="bar">
+                    <span class="cplus"></span>
+                </div>
+                <p style="font-size: 15px; margin-top: 8px;">
+                  I have used C++ for my robotics projects, such as the <a href="">Line-tracking Zumo Robot</a>. I am still learning and improving, as I do not have much experience developing in C++.
+                </p>
+
+             </div>
+            </div>
+  
 
           <!-- Bring users back to the top -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td style="padding:20px; padding-top:0px;width:100%;vertical-align:middle;">
                 <p style="text-align:center">
                   Like what you see? Connect with me at the <a href="#top">top</a>!
                 </p>
-              </td>
+              </td> -->
 
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
@@ -480,22 +668,17 @@
               <li>Model Crestian Award (2013 and 2014) - Awarded to the most outstanding Crestian of the cohort.</li>
             </ul>
 
-            <table style="width:100%; border-top: 1px solid #ccc; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto; margin-top: 50px;">
+            <table style="width:100%; max-width:800px; border-top: 1px solid #ccc; border-spacing:0; border-collapse:separate; margin:auto; margin-top: 50px;">
               <tbody>
-                <tr>
-                  <td style="padding:0px; width:50%; text-align:left;">
+                  <td style="padding:0; width:50%; text-align:center;">
                     <p style="font-size:small;">
-                      Last updated May 2024
-                    </p>
-                  </td>
-                  <td style="padding:0px; width:50%; text-align:right;">
-                    <p style="font-size:small;">
-                      Website inspiration courtesy of Jon Barron
+                      Lim Chao Zhou © 2024  &bull;  Last updated June 2024
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
+            
           </td>
       </tr>
     </table>
@@ -541,11 +724,48 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
       var typed = new Typed('.auto-type', {
-        strings: ["Hey there!", "I'm Chao Zhou ...", "Nice to meet you :)"],
+        strings: ["Hey there!", "I'm Chao Zhou ...", "Nice to meet you! :)"],
         typeSpeed: 50,
         backSpeed: 59,
         loop: true
       });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.bar span').forEach(span => span.classList.add('animate'));
+                    entry.target.querySelectorAll('.percentage').forEach(percentage => {
+                        percentage.classList.add('animate');
+                        updatePercentagePosition(percentage); // Ensure positions are updated when visible
+                    });
+                } else {
+                    entry.target.querySelectorAll('.bar span').forEach(span => span.classList.remove('animate'));
+                    entry.target.querySelectorAll('.percentage').forEach(percentage => percentage.classList.remove('animate'));
+                }
+            });
+        });
+
+        const skillsContainer = document.querySelectorAll('.skills-container');
+        skillsContainer.forEach(container => observer.observe(container));
+
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.percentage').forEach(updatePercentagePosition);
+        });
+
+        // Call initially for all percentages
+        document.querySelectorAll('.percentage').forEach(updatePercentagePosition);
+
+        function updatePercentagePosition(percentage) {
+            const bar = percentage.closest('.skill-container').querySelector('.bar');
+            const barWidth = bar.clientWidth; // Use clientWidth to get current computed width
+            const widthPercentage = parseFloat(percentage.textContent.replace('%', '')) / 100;
+            percentage.style.left = `${barWidth * widthPercentage - percentage.offsetWidth / 2}px`; // Center the label
+        }
+    });
+
+
     </script>
                                                       
   </body>

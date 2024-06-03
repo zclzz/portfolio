@@ -1,0 +1,435 @@
+
+.skills{
+    width: 600px;
+    min-width:300px;
+    max-width: 100%;
+    color:#fff;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-header{
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    width:100%;
+    text-align: center;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap into the next row */
+  justify-content: space-between; /* Distributes space between and around content items */
+  align-items: flex-start; /* Aligns items to the start of the flex line */
+  max-width: 100%;
+  width: 100%; /* Ensures it spans the entire width of its parent */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto; /* Centers the container */
+}
+
+.skill-container {
+  width: 48%; /* For two columns, adjust according to total width minus any gap */
+  margin: 10px 0; /* Adjust vertical spacing */
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .skill-container {
+    width: 100%; /* Switch to full width for a single column layout */
+  }
+
+  .percentage {
+    /* Adjust positioning to accommodate full width */
+    top: auto; /* Removes the top positioning */
+    bottom: -30px; /* Ensures the label is below the bar */
+    left: auto; /* Resets left positioning */
+    transform: translateX(0%); /* Resets transformation */
+  }
+}
+
+/* Continue with your existing styles and keyframes for animations */
+
+ .skill-container p{
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+ }
+
+ .bar{
+    width:100%;
+    background: #475472;
+    display:block;
+    height: 20px;
+    border:none;
+    border-radius: 100vw;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.25, 8, .25, 1);
+ }
+
+ .bar span{
+    height:20px;
+    float: left;
+    background: #5271ff;
+    border:none;
+    border-radius: 100vw;
+ }
+
+/* adding animation to skill bar */
+
+ .machinelearning.animate{
+    width: 70%;
+    animation: machinelearning 3s;
+ }
+
+ .ai.animate{
+  width: 40%;
+  animation: ai 3s;
+}
+
+ .neuralnetworks.animate{
+    width:50%;
+    animation: neuralnetworks 3s;
+ }
+
+ .tools.animate{
+    width:60%;
+    animation: tools 3s;
+ }
+
+ .hardware.animate{
+    width:30%;
+    animation: hardware 3s;
+ }
+
+ .python.animate{
+  width:70%;
+  animation: python 3s;
+}
+
+.java.animate{
+  width:50%;
+  animation: java 3s;
+}
+
+.javascript.animate{
+  width:20%;
+  animation: javascript 3s;
+}
+
+.xml.animate{
+  width:60%;
+  animation: xml 3s;
+}
+
+.ros.animate{
+  width:30%;
+  animation: ros 3s;
+}
+
+.cplus.animate{
+  width:20%;
+  animation: cplus 3s;
+}
+
+
+ @keyframes machinelearning{
+    0%{
+        width:0%
+    };
+
+    100%{
+        width:70%
+    }
+ }
+
+ @keyframes ai{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:40%
+  }
+}
+
+ @keyframes neuralnetworks{
+    0%{
+        width:0%
+    };
+
+    100%{
+        width:50%
+    }
+ }
+
+ @keyframes tools{
+    0%{
+        width:0%
+    };
+
+    100%{
+        width:60%
+    }
+ }
+
+ @keyframes hardware{
+    0%{
+        width:0%
+    };
+
+    100%{
+        width:30%
+    }
+ }
+
+ @keyframes python{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:70%
+  }
+}
+
+@keyframes java{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:50%
+  }
+}
+
+@keyframes javascript{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:20%
+  }
+}
+
+@keyframes xml{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:60%
+  }
+}
+
+@keyframes ros{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:30%
+  }
+}
+
+@keyframes cplus{
+  0%{
+      width:0%
+  };
+
+  100%{
+      width:20%
+  }
+}
+
+.percentage {
+  position: absolute;
+  top: 12px;
+  width: 25px;
+  height: 20px;
+  background: #5271ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  border-radius: 2px;
+  z-index: 10;
+  transition: all .3s ease-in-out;
+}
+
+ .percentage::after{
+    content: "";
+    position: absolute;
+    top:15px;
+    left:50%;
+    transform: translateX(-50%) rotate(45deg);
+    margin: auto;
+    width:10px;
+    height:10px;
+    background: #5271ff;
+    z-index:-1;
+ }
+
+ /* adding animation to .percentage */
+
+ .machinelearning-percentage.animate{
+    left:90%;
+    animation: machinelearning_percentage 3s;
+ }
+
+ .ai-percentage.animate{
+  left:40%;
+  animation: ai_percentage 3s;
+}
+
+ .neuralnetworks-percentage.animate{
+    left:50%;
+    animation: neuralnetworks_percentage 3s;
+ }
+
+ .tools-percentage.animate{
+    left:60%;
+    animation: tools_percentage 3s;
+ }
+
+ .hardware-percentage.animate{
+    left:30%;
+    animation: hardware_percentage 3s;
+ }
+
+ .python-percentage.animate{
+  left:70%;
+  animation: python_percentage 3s;
+}
+
+.java-percentage.animate{
+  left:70%;
+  animation: java_percentage 3s;
+}
+
+.javascript-percentage.animate{
+  left:20%;
+  animation: javascript_percentage 3s;
+}
+
+.xml-percentage.animate{
+  left:60%;
+  animation: xml_percentage 3s;
+}
+
+.ros-percentage.animate{
+  left:30%;
+  animation: ros_percentage 3s;
+}
+
+.cplus-percentage.animate{
+  left:20%;
+  animation: cplus_percentage 3s;
+}
+
+ @keyframes machinelearning_percentage{
+    0%{
+        left:0
+    };
+    100%{
+        left:90%;
+    }
+ }
+
+ @keyframes ai_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:40%;
+  }
+}
+
+ @keyframes neuralnetworks_percentage{
+    0%{
+        left:0
+    };
+    100%{
+        left:50%;
+    }
+ }
+
+ @keyframes tools_percentage{
+    0%{
+        left:0
+    };
+    100%{
+        left:60%;
+    }
+ }
+
+ @keyframes hardware_percentage{
+    0%{
+        left:0
+    };
+    100%{
+        left:30%;
+    }
+ }
+
+ @keyframes python_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:70%;
+  }
+}
+
+@keyframes java_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:50%;
+  }
+}
+
+@keyframes javascript_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:20%;
+  }
+}
+
+@keyframes xml_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:60%;
+  }
+}
+
+@keyframes ros_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:30%;
+  }
+}
+
+@keyframes cplus_percentage{
+  0%{
+      left:0
+  };
+  100%{
+      left:20%;
+  }
+}

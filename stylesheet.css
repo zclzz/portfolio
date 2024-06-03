@@ -106,7 +106,7 @@ h2 {
   padding-top: 20px;
   margin: 0;
   font-family: 'courier', sans-serif;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .one {
@@ -261,6 +261,19 @@ span.highlight {
 /* Ensures the sidebar opens with enough width and transitions properly */
 @media (max-width: 768px) {
   .sidebar {
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {  /* Adjusts for tablets and smaller devices */
+  .name {
+    font-size: 20px;  /* Smaller font size on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {  /* Adjusts for mobile phones */
+  .name {
+    font-size: 18px;  /* Even smaller font size for very small screens */
   }
 }
 
