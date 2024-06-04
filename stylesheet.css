@@ -273,10 +273,59 @@ span.highlight {
 
 @media (max-width: 480px) {  /* Adjusts for mobile phones */
   .name {
-    font-size: 18px;  /* Even smaller font size for very small screens */
+    font-size: 15px;  /* Even smaller font size for very small screens */
   }
 }
 
+.experience-entry {
+  display: flex;
+  align-items: center; /* Keeps items aligned at their centers */
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.experience-image-container {
+  flex: 0 0 auto; /* Image container will not grow or shrink but maintain size */
+  width: 160px; /* Static width for the image */
+  text-align: center;
+  margin-right: 20px; /* Spacing between image and text */
+}
+
+.experience-image-container img {
+  width: 100%;
+  max-width: 160px; /* Ensures the image does not grow beyond this size */
+  height: auto;
+  opacity: 0.5; /* Default opacity */
+  transition: opacity .2s ease-in-out;
+}
+
+.experience-description {
+  flex-grow: 1; /* Takes the remaining space */
+  padding-right: 20px; /* Ensures padding on the right */
+}
+
+.experience-entry:hover .experience-image-container img {
+  opacity: 1; /* Image becomes fully opaque on hover */
+}
+
+@media (max-width: 768px) {
+  .experience-entry {
+    flex-direction: column;
+    align-items: center; /* Center-align items for a neat stacked layout */
+  }
+
+  .experience-image-container {
+    width: 160px; /* Maintain the width of the image container */
+    margin-bottom: 20px; /* Provide margin below after centering the image */
+    text-align: center; /* Center-align the image container */
+  }
+
+  .experience-description {
+    text-align: left; /* Keep text left-aligned on smaller screens */
+    width: 100%; /* Allow the description to take full width */
+  }
+}
 
 /* Additional CSS to ensure the header does not block content when navigating to anchors */
 :target:before {
