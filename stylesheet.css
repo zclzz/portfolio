@@ -157,10 +157,33 @@ span.highlight {
   max-width: 800px; /* Max width same as page content */
 }
 
-.header-name {
-  font-size: 20px; /* Adjust as needed */
-  font-weight: bold; /* Bold for visibility */
-  font-family: "cursive"; /* Cursive font for name */
+.header-name img {
+  height: 40px; /* Adjust based on your logo's size */
+  vertical-align: middle; /* Aligns the logo vertically in the middle of the header */
+}
+
+/* If needed, adjust the link to remove underline and other default styles */
+.header-name a {
+  display: flex;
+  align-items: center; /* Centers the logo and text vertically */
+  text-decoration: none; /* Removes underline */
+}
+
+.header-name span {
+  margin-left: 10px; /* Adds space between the logo and text */
+  font-size: 24px; /* Adjust based on your design */
+  font-weight: bold; /* Makes the name bold */
+  color: #000; /* Adjust color as needed */
+}
+
+/* Adjust the font size for smaller devices if necessary */
+@media (max-width: 768px) {
+  .header-name img {
+    height: 30px; /* Adjust logo size */
+  }
+  .header-name span {
+    font-size: 20px; /* Smaller font size for the name */
+  }
 }
 
 .header-content {
