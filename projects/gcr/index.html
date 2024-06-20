@@ -77,7 +77,7 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title" style="margin-top: 20px;">General Comfort Rating (GCR) Android Data Collection System</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">An in-house customized Android App developed for the Cabin Seat Comfort Project, under <a href="https://siacorplab.nus.edu.sg/work-package-4-passenger-comfort-sleep-and-cabin-service/" target="_blank">SIA-NUS Digital Aviation Corporate Laboratory</a></span>
+            <span class="author-block">An in-house customized Android Data Collection System developed for the Cabin Seat Comfort Project, under <a href="https://siacorplab.nus.edu.sg/work-package-4-passenger-comfort-sleep-and-cabin-service/" target="_blank">SIA-NUS Digital Aviation Corporate Laboratory</a></span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -117,7 +117,7 @@
                 type="video/mp4">
       </video>
       <p style="margin-bottom: 30px;">
-        Data collection process of the General Comfort Rating (GCR) Android Application developed for the Cabin Seat Comfort Project.
+        Figure 1: Data collection process in the General Comfort Rating (GCR) Android Application developed for the Cabin Seat Comfort Project.
       </p>
     </div>
   </div>
@@ -146,7 +146,7 @@
                     type="video/mp4">
           </video>
           <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
-            Body reference video introduced to participants before the study to guide them in rating their discomfort at specific body regions.
+            Figure 2: Body reference video introduced to participants before the study to guide them in rating their discomfort at specific body regions.
           </p>
 
           <p>
@@ -184,6 +184,33 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Data Collection Process</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/software.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+          <p style="text-align: center; font-size: 14px;">
+            Figure 3: Software Architecture Diagram of the GCR Data Collection System.
+          </p>
+          <p>
+            Each run of the study allows the cabin simulator to seat a maximum of four participants at a time. The study is conducted in a controlled environment, with participants seated in a cabin simulator that replicates long-haul flight conditions.
+            Each Seat and its IFE tablet is labelled (2F, 2D, 3F, 3D) which allows participants to provide their discomfort ratings at specific body regions. The app prompts participants to fill in a discomfort survey every 20 minutes, with a 5-minute toilet break at every 2 hour intervals.
+            The provided discomfort ratings are recorded to Google Apps Script using its unique API key. Feedback is provided when the data has been successfully recorded, prompting users to carry on with their activity. The recorded data is then synced to an online spreadsheet for real-time remote monitoring by researchers.
+          </p>
+          <p>
+            Recently, I integrated a new feature that allows researchers to broadcast notifications to participants' IFE tablets. This feature is particularly useful for studies that require participants to be alerted of specific events or instructions during the study which are not planned for. This allows participants to stay 
+            informed and updated, as the notification will be displayed on their IFE tablet screen. The notification system is designed to be non-intrusive, ensuring that participants are not distracted from their activity during the study. I implemented this feature using <a href="https://firebase.google.com/docs/cloud-messaging" target="_blank">Firebase Cloud Messaging (FCM)</a> 
+            allowing researchers to send notifications to participants' IFE tablets remotely in real time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -199,11 +226,12 @@
               <li>Interactive user interface that responses to user's click activity.</li>
               <li>Notification system that prompts participants to fill in a discomfort survey every 20 minutes.</li>
               <li>Provides researchers with administrative access to control app activty and study duration.</li>
+              <li>Allows participants to receive customised announcements or notifications from researchers.</li>
               <li>Allows for real time monitoring of participants' discomfort feedback by syncing collected data to an online spreadsheet for analysis.</li>
           </p> 
           <img src="./static/images/login.jpg" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
           <p style="text-align: center; font-size: 14px;">
-            Login page of the App to give researcers access to control app activity and study duration.
+            Figure 4: Login page of the App to give researcers access to control app activity and study duration.
           </p>
           <p>
             The login page of the app provides researchers with administrative access to control app activity and study duration. Researchers can customize the app according to specific study requirements,
@@ -212,7 +240,7 @@
           </p>
           <img src="./static/images/interval.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
           <p style="text-align: center; font-size: 14px;">
-            Notification system that prompts participants to fill in a discomfort survey every 20 minutes.
+            Figure 5: Notification system that prompts participants to fill in a discomfort survey every 20 minutes.
           </p>
           <p>
             Arguably the most critical feature of the app is the notification system that prompts participants to complete a discomfort survey every 20 minutes. This ensures that feedback on discomfort levels is consistently provided throughout the duration of the study, 
@@ -248,7 +276,7 @@
           </p>
           <img src="./static/images/logging.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
           <p style="text-align: center; font-size: 14px;">
-            Discomfort ratings from participants are logged to an online spreadsheet using <a href="https://developers.google.com/sheets/api/guides/concepts" target="_blank">Google Sheets API</a> and <a href="https://www.google.com/script/start/">Google Apps Script</a>.
+            Figure 6: Discomfort ratings from participants are logged to an online spreadsheet using <a href="https://developers.google.com/sheets/api/guides/concepts" target="_blank">Google Sheets API</a> and <a href="https://www.google.com/script/start/">Google Apps Script</a>.
           </p>
           <p>
             The real-time data monitoring feature utilizes the Google Sheets API and Google Apps Script to automatically log discomfort ratings inputted by participants into an online spreadsheet. 
@@ -261,7 +289,7 @@
                     type="video/mp4">
           </video>
           <p style="margin-bottom: 30px; text-align: center; font-size: 14px;">
-            Real-time data monitoring feature that syncs collected data to an online spreadsheet for analysis.
+            Figure 7: Real-time data monitoring feature that syncs collected data to an online spreadsheet for analysis.
           </p>
           <p>
             The real-time data monitoring feature also allows researchers to identify participants who have missed out on filling in the discomfort surveys at specific intervals (maybe because they fell asleep or the notification did not arrive). 
