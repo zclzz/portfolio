@@ -431,9 +431,14 @@ span.highlight {
 
 .icon-links {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+  justify-content: space-evenly; /* Evenly distribute icons on large screens */
+  flex-wrap: nowrap; /* Prevents wrapping */
   text-align: center;
+  gap: 30px; /* Ensures proper spacing between icons */
+  overflow-x: auto; /* Enables horizontal scrolling on small screens */
+  white-space: nowrap;
+  width: 100%; /* Ensures full container width */
+  padding: 10px 0;
 }
 
 .icon-links a {
@@ -442,22 +447,31 @@ span.highlight {
   align-items: center;
   text-decoration: none;
   color: #333; /* Adjust color as needed */
-  margin: 10px; /* Space between icons */
+  margin: 10px; /* Adds more space around icons */
+  flex-shrink: 0; /* Prevents icons from shrinking */
 }
 
 .icon-links i {
-  width: 40px; /* Size of the icons */
+  width: 40px; /* Icon size */
   height: 40px;
   margin-bottom: 5px; /* Space between icon and text */
-  stroke: #333; /* Icon color */
+  stroke: #333;
   stroke-width: 2;
 }
 
 .icon-links span {
-  font-size: 14px; /* Font size for text */
-  font-weight: bold; /* Bold text */
+  font-size: 14px; /* Adjust text size */
+  font-weight: bold;
 }
 
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+  .icon-links {
+    justify-content: flex-start; /* Align icons to the left for natural scrolling */
+    gap: 10px; /* Reduce space between icons */
+    padding-bottom: 5px; /* Prevents scrollbar overlap */
+  }
+}
 
 /* Additional CSS to ensure the header does not block content when navigating to anchors */
 :target:before {
