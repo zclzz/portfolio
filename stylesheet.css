@@ -432,10 +432,8 @@ span.highlight {
 .icon-links {
   display: flex;
   justify-content: space-around;
-  flex-wrap: nowrap; /* Ensures items wrap on smaller screens */
+  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
   text-align: center;
-  gap: 10px; /* Add space between items */
-  padding: 10px; /* Optional padding for better spacing */
 }
 
 .icon-links a {
@@ -444,32 +442,21 @@ span.highlight {
   align-items: center;
   text-decoration: none;
   color: #333; /* Adjust color as needed */
-  margin: 10px; /* Space between icons */
+  margin: 10px; /* Adds more space around icons */
+  flex-shrink: 0; /* Prevents icons from shrinking */
 }
 
 .icon-links i {
-  width: 40px; /* Size of the icons */
+  width: 40px; /* Icon size */
   height: 40px;
   margin-bottom: 5px; /* Space between icon and text */
-  stroke: #333; /* Icon color */
+  stroke: #333;
   stroke-width: 2;
 }
 
 .icon-links span {
   font-size: 14px; /* Font size for text */
   font-weight: bold; /* Bold text */
-}
-
-@media (max-width: 768px) {
-  .header-name img {
-    height: 30px; /* Smaller size for tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .header-name img {
-    height: 20px; /* Even smaller size for mobile phones */
-  }
 }
 
 
