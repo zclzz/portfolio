@@ -432,8 +432,10 @@ span.highlight {
 .icon-links {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+  flex-wrap: nowrap; /* Ensures items wrap on smaller screens */
   text-align: center;
+  gap: 10px; /* Add space between items */
+  padding: 10px; /* Optional padding for better spacing */
 }
 
 .icon-links a {
@@ -456,6 +458,18 @@ span.highlight {
 .icon-links span {
   font-size: 14px; /* Font size for text */
   font-weight: bold; /* Bold text */
+}
+
+@media (max-width: 768px) {
+  .header-name img {
+    height: 30px; /* Smaller size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-name img {
+    height: 20px; /* Even smaller size for mobile phones */
+  }
 }
 
 
