@@ -139,8 +139,8 @@ span.highlight {
   top: 0;
   left: 0;
   right: 0;
-  background: #f4f4f4;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #EDE8D0;
+  box-shadow: 0 2px 8px rgba(180, 160, 120, 0.06);
   z-index: 1000;
   display: flex;
   justify-content: center; /* Align header content in the center */
@@ -170,10 +170,10 @@ span.highlight {
 }
 
 .header-name span {
-  margin-left: 10px; /* Adds space between the logo and text */
-  font-size: 24px; /* Adjust based on your design */
-  font-weight: bold; /* Makes the name bold */
-  color: #000; /* Adjust color as needed */
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
 }
 
 .about-me-section {
@@ -236,6 +236,13 @@ span.highlight {
   animation: imageChange 4.5s 0s infinite;
 }
 
+i[data-feather] {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  color: #b89c6d;
+}
+
 
 @media (max-width: 768px) {
   .about-me-section {
@@ -277,10 +284,11 @@ span.highlight {
   color: black;
   display: inline-block;
   font-size: 15px; /* Increased font size for links */
+  background-color: #EDE8D0;
 }
 
 .header-content a:hover, .header-content a.active {
-  background-color: #ddd;
+  background-color: #EDE8D0;
 }
 
 .hamburger {

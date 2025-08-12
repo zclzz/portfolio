@@ -23,8 +23,12 @@
     <link rel="stylesheet" type="text/css" href="skillbar.css">
     <style>
       html {
-          scroll-behavior: smooth;
+          scroll-behavior: smooth;  
       }
+      body {
+          background-color: #fffef0; /* Beige */
+      }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   </head>
@@ -35,7 +39,7 @@
         <div class="header-name">
           <a href="/" style="display: flex; align-items: center;">
             <img src="images/favicon/CZ2.png" alt="Logo" style="height: 40px;">
-            <span style="margin-left: 10px; font-size: 24px; font-weight: bold;">CHAO ZHOU LIM</span> <!-- Customize font size and weight as needed -->
+            <span style="margin-left: 10px; font-size: 24px; font-weight: bold;">CHAO ZHOU LIM</span> 
           </a>
         </div>
         <div class="header-content">
@@ -74,7 +78,7 @@
                   <span class="auto-type"></span>
                 </p>
                 <p>
-                  You have arrived at my personal homepage. I am currently a <strong>Software Engineer</strong> at <a href="https://www.hopetechnik.com/" target="_blank">HOPE Technik</a>.
+                  You have arrived at my personal homepage. I am currently an <strong>AI Engineer</strong> at <a href="https://pandaisuite.com/about-us/" target="_blank">Cognotiv</a>.
                 </p>
                   I received a B.Eng. (<a href="https://cde.nus.edu.sg/esp/undergraduate/b-eng-engineering-science/" target="_blank">Engineering Science</a>) degree with Honours (Distinction) from the National University of Singapore (NUS), specializing in <a href="https://cde.nus.edu.sg/esp/undergraduate/b-eng-engineering-science/specialisation/" target="_blank">Computational Engineering Science</a> and a Minor in <a href="https://www.comp.nus.edu.sg/programmes/ug/minorc/minor-in-ai/" target="_blank">Artificial Intelligence</a>.
                 </p>
@@ -127,7 +131,7 @@
                 My interest lies in the intersection of AI, Robotics and Human-Computer Interaction, fueled by a profound curiosity about how technology can transform lives and change the world.
               </p>
               <p>
-                This led me to pursue my final-year <a href="projects/fyp/">research thesis</a> on using natural language to command embodied artificial intelligence, which was ranked top 13 in the <a href="https://leaderboard.allenai.org/alfred/submissions/public" target="_blank">ALFRED Challenge</a> (2024).
+                This led me to pursue my final-year <a href="projects/fyp/">research thesis</a> on using natural language to command embodied artificial intelligence, which was ranked top 15 in the <a href="https://leaderboard.allenai.org/alfred/submissions/public" target="_blank">ALFRED Challenge</a> (2024).
               </p>
               <p>
                 Outside of work, I enjoy working out, exercisng and being a better person than who I was yesterday.
@@ -151,7 +155,28 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-    
+    <div class="experience-entry" style="margin-top: 20px;">
+      <div class="experience-image-container" onmouseout="cognotiv_stop()" onmouseover="cognotiv_start()">
+          <img src="images/cognotiv.png" alt="hope Logo" id="hope" width="100%">
+      </div>
+      <div class="experience-description" style="margin-left: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <a href="https://pandaisuite.com/about-us/" target="_blank">
+            <span class="papertitle">Cognotiv Private Limited</span>
+          </a>
+          <span style="white-space: nowrap;">Aug 2025 - Present</span>
+        </div>
+
+        <br>
+        <p>
+          Artificial Intelligence Engineer (LLMs & Applied Machine Learning)
+        </p>
+        <ul>
+          <li>Incoming AI Engineer at Cognotiv</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="experience-entry" style="margin-top: 20px;">
       <div class="experience-image-container" onmouseout="hope_stop()" onmouseover="hope_start()">
           <img src="images/hope.png" alt="hope Logo" id="hope" width="100%">
@@ -161,17 +186,21 @@
           <a href="https://www.hopetechnik.com/" target="_blank">
             <span class="papertitle">HOPE Technik Private Limited</span>
           </a>
-          <span style="white-space: nowrap;">July 2024 - Present</span>
+          <span style="white-space: nowrap;">July 2024 - Aug 2025</span>
         </div>
 
         <br>
         <p>
-          Software Engineer (Robotics / ML)
+          Software Engineer (Robotics)
         </p>
         <ul>
-          <li>Developed, tested, and integrated <a href="https://www.hopetechnik.com/product/beacon-robotics-middleware-framework-rmf/" target="_blank">robotics middleware</a> in healthcare, automating equipment delivery across 3 workflows in 2 hospitals to enhance efficiency and reduce manual labor reliance.</li>
-          <li>Built TypeScript-based frontend features to enhance UI/UX per client specifications.</li>
-          <li>Streamlined key workflows by automating Docker builds, code deployment, and log collection with Bash scripts, minimizing manual effort.</li>
+          <li>Developed robotic workflows for AMRs using <a href="https://www.hopetechnik.com/product/beacon-robotics-middleware-framework-rmf/" target="_blank">RMF</a>
+            to automate delivery of medical equipment across hospitals, integrating with doors, beacons, and lifts.</li> 
+          <li>Designed and implemented end-to-end task dispatch workflows, combining a dynamic React/TypeScript frontend with a FastAPI backend that builds and 
+            exposes RESTful APIs, translating user inputs into structured robotic execution phases with asynchronous processing, validation, and OpenAPI documentation
+            for reliable autonomous operation.</li>
+          <li>Managed application deployment using Docker, Kubernetes, and CI/CD pipelines, overseeing automated image builds, container registry management,
+            and orchestrated rollouts with load balancing across staging and production environments.</li>
         </ul>
       </div>
     </div>
@@ -199,7 +228,14 @@
               discomfort</li>
             <li>Key Contributions: Developed <a href="projects/gcr/" target="_blank">General Comfort Rating Data Collection System</a> to allow passengers to provide discomfort ratings to specific body regions.</li>
           </ul>
-          [<a href="data/Recommendation Letter - Lim Chao Zhou.pdf" target="_blank">Testimonial</a>]
+          <!-- [<a href="data/Recommendation Letter - Lim Chao Zhou.pdf" target="_blank">Testimonial</a>] -->
+          <a href="data/Recommendation Letter - Lim Chao Zhou.pdf" target="_blank" title="Testimonial" style="display: inline-flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <i data-feather="file-text" style="width:18px; height:18px;"></i>
+            <span style="font-size: 12px; color: #b89c6d; margin-top: 2px;">Testimonial</span>
+          </a>
+          <script>
+            feather.replace();
+          </script>
         </p>
       </div>
     </div>
@@ -221,7 +257,14 @@
             <li>Improved agent decision-making by refining LLM-generated outputs with advanced AI techniques like POMDPs for optimized selection of action sequences.</li>
             <li>Achieved top 13th placing on global <a href="https://leaderboard.allenai.org/alfred/submissions/public" target="_blank">ALFRED leaderboard</a> outperforming state-of-the-art baseline models.</li>
           </ul>
-          [<a href="data/chaozhou_testimonial2024.pdf" target="_blank">Testimonial</a>]
+          <!-- [<a href="data/chaozhou_testimonial2024.pdf" target="_blank">Testimonial</a>] -->
+          <a href="data/chaozhou_testimonial2024.pdf" target="_blank" title="Testimonial" style="display: inline-flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <i data-feather="file-text" style="width:18px; height:18px;"></i>
+            <span style="font-size: 12px; color: #b89c6d; margin-top: 2px;">Testimonial</span>
+          </a>
+          <script>
+            feather.replace();
+          </script>
         </p>
       </div>
     </div>
@@ -237,13 +280,20 @@
         </div>
 
           <p>
-              Robotics Engineer Internship
-              <ul>
-                  <li>Developed and implemented computer vision and pattern recognition algorithms to enhance automation products, demonstrating their
-                    capabilities for marketing and client efficiency solutions.</li>
-                  <li>Engaged in meetings with existing and prospective clients to discuss future collaborations.</li>
-              </ul>
-              [<a href="images/Testimonial-CZ.jpg" target="_blank">Testimonial</a>]
+            Robotics Engineer Internship
+            <ul>
+                <li>Developed and implemented computer vision and pattern recognition algorithms to enhance automation products, demonstrating their
+                  capabilities for marketing and client efficiency solutions.</li>
+                <li>Engaged in meetings with existing and prospective clients to discuss future collaborations.</li>
+            </ul>
+            <!-- [<a href="images/Testimonial-CZ.jpg" target="_blank">Testimonial</a>] -->
+            <a href="images/Testimonial-CZ.jpg" target="_blank" title="Testimonial" style="display: inline-flex; flex-direction: column; align-items: center; text-decoration: none;">
+              <i data-feather="file-text" style="width:18px; height:18px;"></i>
+              <span style="font-size: 12px; color: #b89c6d; margin-top: 2px;">Testimonial</span>
+            </a>
+            <script>
+              feather.replace();
+            </script>
           </p>
       </div>
     </div>
@@ -680,7 +730,7 @@
               <tbody>
                   <td style="padding:0; width:50%; text-align:center;">
                     <p style="font-size:small;">
-                      Lim Chao Zhou © 2024  &bull;  Last updated June 2024
+                      Lim Chao Zhou © 2024  &bull;  Last updated July 2025
                     </p>
                   </td>
                 </tr>
